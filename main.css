@@ -1,1 +1,128 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  overscroll-behavior: none;
+  overflow-y: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+#tentBackground {
+  background-image: repeating-linear-gradient(90deg, red, red 30px, white 30px, white 60px);
+  width: 100vw;
+  height: 100vh;
+}
+
+#tentBackground header {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #eeeeee;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+#tentBackground header .heading {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+#tentBackground header h1 {
+  font-size: 30px;
+}
+
+#tentBackground header .admin {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 3 / 2 / 4;
+  -ms-grid-row-align: center;
+  align-self: center;
+  justify-self: flex-end;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+#tentBackground header .admin .icon {
+  background-color: green;
+  height: 40px;
+  width: 40px;
+}
+
+#game {
+  background-color: blue;
+  border-radius: 20px;
+  height: 55vh;
+  width: 85vw;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+#tablet {
+  background-color: rgba(0, 0, 0, 0.479);
+  padding: 20px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  max-width: 85vw;
+  margin: 20px auto;
+}
+
+#tablet h3 {
+  text-align: center;
+  font-size: 22px;
+  color: #eeeeee;
+  margin-bottom: 15px;
+}
+
+#tablet p {
+  color: #eeeeee;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 850px) {
+  .gameGrid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr auto;
+    grid-template-columns: 1fr auto;
+    max-width: 1200px;
+    width: 90vw;
+    margin: 0 auto;
+    grid-gap: 40px;
+  }
+  #tablet {
+    margin: 40px auto;
+    padding: 20px;
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
+    height: 70vh;
+    max-width: 85vw;
+  }
+  #game {
+    height: 70vh;
+    width: 55vw;
+  }
+}
+/*# sourceMappingURL=main.css.map */
