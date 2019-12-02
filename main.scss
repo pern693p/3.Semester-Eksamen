@@ -18,7 +18,7 @@ h3 {
 }
 
 #tentBackground {
-  background-image: repeating-linear-gradient(90deg, red, red 30px, white 30px, white 60px);
+  background-image: repeating-linear-gradient(90deg, red, red 50px, white 50px, white 100px);
   width: 100vw;
   height: 100vh;
 
@@ -74,16 +74,15 @@ h3 {
 
   h3 {
     text-align: center;
-    font-size: 22px;
+    font-size: 25px;
     color: $textColor;
+    margin-bottom: 15px;
   }
 
   p {
     color: $textColor;
+    margin-bottom: 10px;
   }
-}
-
-.gameGrid {
 }
 
 @media only screen and (min-width: 1000px) {
