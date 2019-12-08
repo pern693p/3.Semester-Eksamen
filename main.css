@@ -7,27 +7,32 @@
 
 body {
   overscroll-behavior: none;
-  overflow-y: hidden;
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 #tentBackground {
   background-image: repeating-linear-gradient(90deg, red, red 50px, white 50px, white 100px);
+  background-image: url(/assets/tent.svg);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  padding-bottom: 30px;
 }
 
 #tentBackground header {
   width: 100%;
   text-align: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #eeeeee;
+  color: #000000;
+  padding: 40px 20px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr auto 1fr;
@@ -42,8 +47,13 @@ h3 {
   grid-area: 1 / 2 / 2 / 3;
 }
 
-#tentBackground header h1 {
-  font-size: 30px;
+#tentBackground header .logo {
+  background-image: url(/assets/logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 140%;
+  width: 70vw;
+  background-position: center;
 }
 
 #tentBackground header .admin {
@@ -61,43 +71,500 @@ h3 {
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   justify-items: center;
+  font-family: sans-serif;
+  cursor: pointer;
 }
 
 #tentBackground header .admin .icon {
-  background-color: green;
+  background-image: url(/assets/admin_button.svg);
+  background-size: contain;
   height: 40px;
   width: 40px;
 }
 
-#game {
-  background-color: blue;
-  border-radius: 20px;
-  height: 55vh;
+.water {
+  height: 67.575vw;
   width: 85vw;
-  max-width: 900px;
+  max-width: 402.5px;
+  max-height: 320px;
   margin: 40px auto 0;
+  border-radius: 10%;
+  background-image: url(/assets/screen.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 95%;
+}
+
+.ripple {
+  background-image: url(/assets/screen.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.7;
+  height: 82%;
+  width: 85%;
+  position: absolute;
+  z-index: 0;
+  -webkit-filter: url("#turbulence");
+          filter: url("#turbulence");
+}
+
+@-webkit-keyframes water {
+  0% {
+    background-size: 95%;
+  }
+  25% {
+    background-size: 93%;
+  }
+  50% {
+    background-size: 95%;
+  }
+  75% {
+    background-size: 97%;
+  }
+  100% {
+    background-size: 95%;
+  }
+}
+
+@keyframes water {
+  0% {
+    background-size: 95%;
+  }
+  25% {
+    background-size: 93%;
+  }
+  50% {
+    background-size: 95%;
+  }
+  75% {
+    background-size: 97%;
+  }
+  100% {
+    background-size: 95%;
+  }
+}
+
+#game {
+  background-image: url(/assets/edge.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+#game .ducks {
+  width: 85%;
+  height: 80%;
+}
+
+#game .ducks .duck {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+#game .ducks .one {
+  background-image: url(assets/duck_one.svg);
+}
+
+#game .ducks .two {
+  background-image: url(assets/duck_two.svg);
+}
+
+#game .ducks .duck1 {
+  top: 70%;
+  left: 70%;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+  -webkit-animation: duck1 11s infinite forwards ease-in-out;
+          animation: duck1 11s infinite forwards ease-in-out;
+}
+
+#game .ducks .duck2 {
+  top: 18%;
+  left: 72%;
+  -webkit-transform: rotate(269deg);
+          transform: rotate(269deg);
+  -webkit-animation: duck2 14s infinite forwards ease-in-out;
+          animation: duck2 14s infinite forwards ease-in-out;
+}
+
+#game .ducks .duck3 {
+  top: 40%;
+  left: 65%;
+  -webkit-transform: rotate(39deg);
+          transform: rotate(39deg);
+  -webkit-animation: duck3 9s infinite forwards ease-in-out;
+          animation: duck3 9s infinite forwards ease-in-out;
+}
+
+#game .ducks .duck4 {
+  top: 60%;
+  left: 50%;
+  -webkit-transform: rotate(75deg);
+          transform: rotate(75deg);
+  -webkit-animation: duck4 13s infinite forwards ease-in-out;
+          animation: duck4 13s infinite forwards ease-in-out;
+}
+
+#game .ducks .duck5 {
+  top: 25%;
+  left: 42%;
+  -webkit-transform: rotate(124deg);
+          transform: rotate(124deg);
+  -webkit-animation: duck5 8s infinite forwards ease-in-out;
+          animation: duck5 8s infinite forwards ease-in-out;
+}
+
+#game .ducks .duck6 {
+  top: 45%;
+  left: 34%;
+  -webkit-transform: rotate(187deg);
+          transform: rotate(187deg);
+  -webkit-animation: duck6 10s infinite forwards ease-in-out;
+          animation: duck6 10s infinite forwards ease-in-out;
+}
+
+#game .ducks .duck7 {
+  top: 63%;
+  left: 20%;
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+  -webkit-animation: duck7 15s infinite forwards ease-in-out;
+          animation: duck7 15s infinite forwards ease-in-out;
+}
+
+#game .ducks .duck8 {
+  top: 24%;
+  left: 17%;
+  -webkit-transform: rotate(340deg);
+          transform: rotate(340deg);
+  -webkit-animation: duck8 7s infinite forwards ease-in-out;
+          animation: duck8 7s infinite forwards ease-in-out;
+}
+
+@-webkit-keyframes duck1 {
+  0% {
+    -webkit-transform: rotate(150deg) translateX(0) translateY(0);
+            transform: rotate(150deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) translateX(10px) translateY(14px);
+            transform: rotate(180deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(150deg) translateX(0) translateY(0);
+            transform: rotate(150deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck1 {
+  0% {
+    -webkit-transform: rotate(150deg) translateX(0) translateY(0);
+            transform: rotate(150deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) translateX(10px) translateY(14px);
+            transform: rotate(180deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(150deg) translateX(0) translateY(0);
+            transform: rotate(150deg) translateX(0) translateY(0);
+  }
+}
+
+@-webkit-keyframes duck2 {
+  0% {
+    -webkit-transform: rotate(269deg) translateX(0) translateY(0);
+            transform: rotate(269deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(250deg) translateX(10px) translateY(14px);
+            transform: rotate(250deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(269deg) translateX(0) translateY(0);
+            transform: rotate(269deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck2 {
+  0% {
+    -webkit-transform: rotate(269deg) translateX(0) translateY(0);
+            transform: rotate(269deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(250deg) translateX(10px) translateY(14px);
+            transform: rotate(250deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(269deg) translateX(0) translateY(0);
+            transform: rotate(269deg) translateX(0) translateY(0);
+  }
+}
+
+@-webkit-keyframes duck3 {
+  0% {
+    -webkit-transform: rotate(39deg) translateX(0) translateY(0);
+            transform: rotate(39deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(10deg) translateX(10px) translateY(14px);
+            transform: rotate(10deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(39deg) translateX(0) translateY(0);
+            transform: rotate(39deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck3 {
+  0% {
+    -webkit-transform: rotate(39deg) translateX(0) translateY(0);
+            transform: rotate(39deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(10deg) translateX(10px) translateY(14px);
+            transform: rotate(10deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(39deg) translateX(0) translateY(0);
+            transform: rotate(39deg) translateX(0) translateY(0);
+  }
+}
+
+@-webkit-keyframes duck4 {
+  0% {
+    -webkit-transform: rotate(75deg) translateX(0) translateY(0);
+            transform: rotate(75deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(100deg) translateX(10px) translateY(14px);
+            transform: rotate(100deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(75deg) translateX(0) translateY(0);
+            transform: rotate(75deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck4 {
+  0% {
+    -webkit-transform: rotate(75deg) translateX(0) translateY(0);
+            transform: rotate(75deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(100deg) translateX(10px) translateY(14px);
+            transform: rotate(100deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(75deg) translateX(0) translateY(0);
+            transform: rotate(75deg) translateX(0) translateY(0);
+  }
+}
+
+@-webkit-keyframes duck5 {
+  0% {
+    -webkit-transform: rotate(124deg) translateX(0) translateY(0);
+            transform: rotate(124deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(140deg) translateX(10px) translateY(14px);
+            transform: rotate(140deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(124deg) translateX(0) translateY(0);
+            transform: rotate(124deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck5 {
+  0% {
+    -webkit-transform: rotate(124deg) translateX(0) translateY(0);
+            transform: rotate(124deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(140deg) translateX(10px) translateY(14px);
+            transform: rotate(140deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(124deg) translateX(0) translateY(0);
+            transform: rotate(124deg) translateX(0) translateY(0);
+  }
+}
+
+@-webkit-keyframes duck6 {
+  0% {
+    -webkit-transform: rotate(187deg) translateX(0) translateY(0);
+            transform: rotate(187deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(150deg) translateX(10px) translateY(14px);
+            transform: rotate(150deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(187deg) translateX(0) translateY(0);
+            transform: rotate(187deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck6 {
+  0% {
+    -webkit-transform: rotate(187deg) translateX(0) translateY(0);
+            transform: rotate(187deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(150deg) translateX(10px) translateY(14px);
+            transform: rotate(150deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(187deg) translateX(0) translateY(0);
+            transform: rotate(187deg) translateX(0) translateY(0);
+  }
+}
+
+@-webkit-keyframes duck7 {
+  0% {
+    -webkit-transform: rotate(300deg) translateX(0) translateY(0);
+            transform: rotate(300deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(330deg) translateX(10px) translateY(14px);
+            transform: rotate(330deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(300deg) translateX(0) translateY(0);
+            transform: rotate(300deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck7 {
+  0% {
+    -webkit-transform: rotate(300deg) translateX(0) translateY(0);
+            transform: rotate(300deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(330deg) translateX(10px) translateY(14px);
+            transform: rotate(330deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(300deg) translateX(0) translateY(0);
+            transform: rotate(300deg) translateX(0) translateY(0);
+  }
+}
+
+@-webkit-keyframes duck8 {
+  0% {
+    -webkit-transform: rotate(340deg) translateX(0) translateY(0);
+            transform: rotate(340deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(300deg) translateX(10px) translateY(14px);
+            transform: rotate(300deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(340deg) translateX(0) translateY(0);
+            transform: rotate(340deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck8 {
+  0% {
+    -webkit-transform: rotate(340deg) translateX(0) translateY(0);
+            transform: rotate(340deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(300deg) translateX(10px) translateY(14px);
+            transform: rotate(300deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(340deg) translateX(0) translateY(0);
+            transform: rotate(340deg) translateX(0) translateY(0);
+  }
 }
 
 #tablet {
-  background-color: rgba(0, 0, 0, 0.479);
+  background-image: url(/assets/board.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 20px;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   max-width: 85vw;
   margin: 20px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto auto auto 1fr;
+      grid-template-rows: auto auto auto 1fr;
 }
 
 #tablet h3 {
   text-align: center;
-  font-size: 25px;
-  color: #eeeeee;
+  font-size: 30px;
+  color: #000000;
   margin-bottom: 15px;
+  text-transform: uppercase;
+  font-family: hilde-sharp, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #tablet p {
-  color: #eeeeee;
+  color: #000000;
+  font-size: 20px;
   margin-bottom: 10px;
+  font-family: hilde-sharp, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#tablet .yourducks {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  max-width: 500px;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  text-align: center;
+  margin-top: auto;
+}
+
+#tablet .yourducks p {
+  margin: 5px 0 0;
+}
+
+#tablet .yourducks .chosenduck {
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  margin: 0 10px;
+}
+
+#tablet .chosen {
+  display: none;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -106,23 +573,287 @@ h3 {
     display: grid;
     -ms-grid-columns: 1fr auto;
         grid-template-columns: 1fr auto;
-    max-width: 1200px;
+    max-width: 1100px;
     width: 90vw;
     margin: 0 auto;
     grid-gap: 40px;
   }
   #tablet {
     margin: 40px auto;
+    padding: 100px 3vw 40px;
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
+    background-size: contain;
+    height: 43.725vw;
+    max-width: 85vw;
+    max-height: 500px;
+  }
+  .water {
+    height: 43.725vw;
+    width: 55vw;
+    max-width: 625px;
+    max-height: 496.875px;
+    margin: 40px auto 0;
+    border-radius: 10%;
+    background-image: url(/assets/screen.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 95%;
+  }
+  #game .ducks .duck {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #tablet {
+    margin: 40px auto;
+    padding: 100px 5vw 40px;
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
+    background-size: contain;
+    height: 43.725vw;
+    max-width: 85vw;
+    max-height: 500px;
+  }
+  #game .ducks .duck {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .gameGrid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr auto;
+        grid-template-columns: 1fr auto;
+    max-width: 1400px;
+    width: 90vw;
+    margin: 0 auto;
+    grid-gap: 40px;
+  }
+  #tablet {
+    margin: 100px auto;
     padding: 20px;
     min-height: -webkit-min-content;
     min-height: -moz-min-content;
     min-height: min-content;
-    height: 70vh;
+    height: 43.725vw;
     max-width: 85vw;
+    max-height: 715.5px;
   }
-  #game {
-    height: 70vh;
+  .water {
+    height: 43.725vw;
     width: 55vw;
+    max-width: 900px;
+    max-height: 715.5px;
+    margin: 100px auto 0;
+    border-radius: 10%;
+    background-image: url(/assets/screen.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 95%;
+  }
+  #game .ducks .duck {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+/******* FORM AND INPUT********/
+.inputFields {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form .textField {
+  position: relative;
+  margin: 0 0 30px;
+}
+
+form .textField label {
+  color: white;
+  font-family: flood-std, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  margin-bottom: 20px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  width: 300px;
+}
+
+form .textField input:focus + label {
+  top: -15px;
+  font-size: 15px;
+}
+
+form .textField input:valid + label {
+  top: -15px;
+  font-size: 15px;
+}
+
+form .textField input[type="text"],
+form .textField input[type="tel"],
+form .textField input[type="number"],
+form .textField input[type="email"] {
+  width: 300px;
+  font-size: 20px;
+  padding: 5px 0;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: #eeeeee;
+  border-bottom: 2px solid red;
+  font-family: hilde-sharp, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+form .textField input:valid {
+  border-bottom: 2px solid #0eaa00;
+}
+
+form .textField input::-webkit-input-placeholder {
+  color: #eeeeee;
+}
+
+form .textField input:-ms-input-placeholder {
+  color: #eeeeee;
+}
+
+form .textField input::-ms-input-placeholder {
+  color: #eeeeee;
+}
+
+form .textField input::placeholder {
+  color: #eeeeee;
+}
+
+.sex {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto auto;
+      grid-template-columns: 1fr auto auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+}
+
+.sex p {
+  color: white;
+  font-family: flood-std, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+}
+
+.sex input[type="radio"] + label {
+  color: white;
+  border: 2px solid red;
+  padding: 5px 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-family: flood-std, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.sex .man + label {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.sex .woman + label {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.sex input[type="radio"]:checked + label {
+  background-color: red;
+  color: black;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  width: 40%;
+  font-size: 20px;
+  padding: 5px 10px;
+  border: 2px solid red;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #eeeeee;
+  font-family: hilde-sharp, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hide {
+  display: none;
+}
+
+footer {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  width: 100vw;
+  background-color: black;
+  padding: 20px;
+  color: #eeeeee;
+}
+
+footer h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+footer h4 {
+  text-align: center;
+  margin: 20px 0 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+footer p {
+  margin-bottom: 10px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.footerContentWidth {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  .footerContentWidth {
+    max-width: 1000px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
   }
 }
 /*# sourceMappingURL=main.css.map */
