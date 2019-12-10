@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lvx7ggd.css" />
+    <link href="https://fonts.googleapis.com/css?family=Baskervville|Lato|Raleway&display=swap" rel="stylesheet" />
     <title>CarnivalGames</title>
   </head>
   <body>
@@ -55,24 +56,24 @@
           </div>
         </div>
       </div>
-      <section class="inputFields hide">
-        <form class="username">
+      <section class="inputFields hid">
+        <form action="" class="hide">
           <div class="textField">
+            <input type="text" name="username" id="username" required />
             <label for="username"> Hvad må vi kalde dig? </label>
-            <input type="text" name="username" id="username" />
           </div>
           <input type="submit" value="Fisk videre!" />
         </form>
 
         <form class="email hide">
           <div class="textField">
-            <label for="email"> Hvad kan vi fange dig på? </label>
-            <input type="email" name="email" id="email" placeholder="Skriv din email her!" />
+            <input type="email" name="email" id="email" required />
+            <label for="email">Fortæl os din Email</label>
           </div>
           <input type="submit" value="Fisk viderer!" />
         </form>
 
-        <form class="regi hide">
+        <form class="regi hid">
           <div class="textField">
             <input type="number" name="cpr" id="cpr" required />
             <label for="cpr"> CPR-nummer </label>
@@ -112,9 +113,17 @@
               <label for="woman"> Dame </label>
             </div>
           </div>
-          <div>
-            <input type="text" name="firstname" id="firstname" required />
-            <label for="firstname"> Månedligt Forbrug </label>
+          <div class="money">
+            <p>Månedenligt forbrug</p>
+            <div>
+              <select name="spendings" id="spendings" required>
+                <option value=""></option>
+                <option value="0-1000">0-1.000kr</option>
+                <option value="1001-5000">1.001-5.000kr</option>
+                <option value="5001-10000">5.001-10.000kr</option>
+                <option value="10000+">10.000kr+</option>
+              </select>
+            </div>
           </div>
           <input type="submit" />
         </form>
@@ -123,7 +132,7 @@
     <footer>
       <div class="footerContentWidth">
         <div>
-          <h2>Andespillet</h2>
+          <h2>Andedammen</h2>
           <p>
             Som en tak for at du har valgt at besøge vores side, giver vi dig nu muligheden for at vinde 300 kr. til vores spillemaskiner! Det eneste du skal gøre er at vælge 3 ænder i vores andespil
             og se gevinsten for din fangst, nemt ikke?

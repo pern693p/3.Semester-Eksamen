@@ -82,6 +82,7 @@ h2 {
   width: 40px;
 }
 
+/********** SPIL **********/
 .water {
   height: 67.575vw;
   width: 85vw;
@@ -194,69 +195,6 @@ h2 {
           animation: duck1 11s infinite forwards ease-in-out;
 }
 
-#game .ducks .duck2 {
-  top: 18%;
-  left: 72%;
-  -webkit-transform: rotate(269deg);
-          transform: rotate(269deg);
-  -webkit-animation: duck2 14s infinite forwards ease-in-out;
-          animation: duck2 14s infinite forwards ease-in-out;
-}
-
-#game .ducks .duck3 {
-  top: 40%;
-  left: 65%;
-  -webkit-transform: rotate(39deg);
-          transform: rotate(39deg);
-  -webkit-animation: duck3 9s infinite forwards ease-in-out;
-          animation: duck3 9s infinite forwards ease-in-out;
-}
-
-#game .ducks .duck4 {
-  top: 60%;
-  left: 50%;
-  -webkit-transform: rotate(75deg);
-          transform: rotate(75deg);
-  -webkit-animation: duck4 13s infinite forwards ease-in-out;
-          animation: duck4 13s infinite forwards ease-in-out;
-}
-
-#game .ducks .duck5 {
-  top: 25%;
-  left: 42%;
-  -webkit-transform: rotate(124deg);
-          transform: rotate(124deg);
-  -webkit-animation: duck5 8s infinite forwards ease-in-out;
-          animation: duck5 8s infinite forwards ease-in-out;
-}
-
-#game .ducks .duck6 {
-  top: 45%;
-  left: 34%;
-  -webkit-transform: rotate(187deg);
-          transform: rotate(187deg);
-  -webkit-animation: duck6 10s infinite forwards ease-in-out;
-          animation: duck6 10s infinite forwards ease-in-out;
-}
-
-#game .ducks .duck7 {
-  top: 63%;
-  left: 20%;
-  -webkit-transform: rotate(300deg);
-          transform: rotate(300deg);
-  -webkit-animation: duck7 15s infinite forwards ease-in-out;
-          animation: duck7 15s infinite forwards ease-in-out;
-}
-
-#game .ducks .duck8 {
-  top: 24%;
-  left: 17%;
-  -webkit-transform: rotate(340deg);
-          transform: rotate(340deg);
-  -webkit-animation: duck8 7s infinite forwards ease-in-out;
-          animation: duck8 7s infinite forwards ease-in-out;
-}
-
 @-webkit-keyframes duck1 {
   0% {
     -webkit-transform: rotate(150deg) translateX(0) translateY(0);
@@ -285,6 +223,15 @@ h2 {
     -webkit-transform: rotate(150deg) translateX(0) translateY(0);
             transform: rotate(150deg) translateX(0) translateY(0);
   }
+}
+
+#game .ducks .duck2 {
+  top: 18%;
+  left: 72%;
+  -webkit-transform: rotate(269deg);
+          transform: rotate(269deg);
+  -webkit-animation: duck2 14s infinite forwards ease-in-out;
+          animation: duck2 14s infinite forwards ease-in-out;
 }
 
 @-webkit-keyframes duck2 {
@@ -317,6 +264,15 @@ h2 {
   }
 }
 
+#game .ducks .duck3 {
+  top: 40%;
+  left: 65%;
+  -webkit-transform: rotate(39deg);
+          transform: rotate(39deg);
+  -webkit-animation: duck3 9s infinite forwards ease-in-out;
+          animation: duck3 9s infinite forwards ease-in-out;
+}
+
 @-webkit-keyframes duck3 {
   0% {
     -webkit-transform: rotate(39deg) translateX(0) translateY(0);
@@ -345,6 +301,15 @@ h2 {
     -webkit-transform: rotate(39deg) translateX(0) translateY(0);
             transform: rotate(39deg) translateX(0) translateY(0);
   }
+}
+
+#game .ducks .duck4 {
+  top: 60%;
+  left: 50%;
+  -webkit-transform: rotate(75deg);
+          transform: rotate(75deg);
+  -webkit-animation: duck4 13s infinite forwards ease-in-out;
+          animation: duck4 13s infinite forwards ease-in-out;
 }
 
 @-webkit-keyframes duck4 {
@@ -377,6 +342,15 @@ h2 {
   }
 }
 
+#game .ducks .duck5 {
+  top: 25%;
+  left: 42%;
+  -webkit-transform: rotate(124deg);
+          transform: rotate(124deg);
+  -webkit-animation: duck5 8s infinite forwards ease-in-out;
+          animation: duck5 8s infinite forwards ease-in-out;
+}
+
 @-webkit-keyframes duck5 {
   0% {
     -webkit-transform: rotate(124deg) translateX(0) translateY(0);
@@ -405,6 +379,15 @@ h2 {
     -webkit-transform: rotate(124deg) translateX(0) translateY(0);
             transform: rotate(124deg) translateX(0) translateY(0);
   }
+}
+
+#game .ducks .duck6 {
+  top: 45%;
+  left: 34%;
+  -webkit-transform: rotate(187deg);
+          transform: rotate(187deg);
+  -webkit-animation: duck6 10s infinite forwards ease-in-out;
+          animation: duck6 10s infinite forwards ease-in-out;
 }
 
 @-webkit-keyframes duck6 {
@@ -437,6 +420,15 @@ h2 {
   }
 }
 
+#game .ducks .duck7 {
+  top: 63%;
+  left: 20%;
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+  -webkit-animation: duck7 15s infinite forwards ease-in-out;
+          animation: duck7 15s infinite forwards ease-in-out;
+}
+
 @-webkit-keyframes duck7 {
   0% {
     -webkit-transform: rotate(300deg) translateX(0) translateY(0);
@@ -465,6 +457,15 @@ h2 {
     -webkit-transform: rotate(300deg) translateX(0) translateY(0);
             transform: rotate(300deg) translateX(0) translateY(0);
   }
+}
+
+#game .ducks .duck8 {
+  top: 24%;
+  left: 17%;
+  -webkit-transform: rotate(340deg);
+          transform: rotate(340deg);
+  -webkit-animation: duck8 7s infinite forwards ease-in-out;
+          animation: duck8 7s infinite forwards ease-in-out;
 }
 
 @-webkit-keyframes duck8 {
@@ -497,6 +498,11 @@ h2 {
   }
 }
 
+#game .ducks .chosen {
+  display: none;
+}
+
+/********** Tavle ***********/
 #tablet {
   background-image: url(/assets/board.svg);
   background-size: cover;
@@ -561,10 +567,6 @@ h2 {
   height: 50px;
   border: 2px solid black;
   margin: 0 10px;
-}
-
-#tablet .chosen {
-  display: none;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -683,22 +685,36 @@ h2 {
           align-items: center;
 }
 
+form {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  background-color: white;
+  padding: 30px 0px 0px;
+  border: red solid 2px;
+  border-radius: 10px;
+  z-index: -3;
+  overflow: hidden;
+}
+
 form .textField {
   position: relative;
-  margin: 0 0 30px;
+  margin: 0 20px 20px;
 }
 
 form .textField label {
-  color: white;
-  font-family: flood-std, sans-serif;
+  color: #2d2d2d;
+  font-family: Baskervville, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 25px;
-  margin-bottom: 20px;
+  font-size: 15px;
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 0;
+  top: -2px;
+  left: 1px;
   bottom: 0;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
@@ -706,12 +722,12 @@ form .textField label {
 }
 
 form .textField input:focus + label {
-  top: -15px;
+  top: -20px;
   font-size: 15px;
 }
 
 form .textField input:valid + label {
-  top: -15px;
+  top: -20px;
   font-size: 15px;
 }
 
@@ -719,36 +735,21 @@ form .textField input[type="text"],
 form .textField input[type="tel"],
 form .textField input[type="number"],
 form .textField input[type="email"] {
-  width: 300px;
-  font-size: 20px;
-  padding: 5px 0;
+  width: 60vw;
+  max-width: 500px;
+  font-size: 15px;
+  padding: 5px 3px 2px;
   border: none;
   background-color: rgba(255, 255, 255, 0);
-  color: #eeeeee;
-  border-bottom: 2px solid red;
-  font-family: hilde-sharp, sans-serif;
+  color: #2d2d2d;
+  border-bottom: 1px solid red;
+  font-family: Raleway, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 form .textField input:valid {
   border-bottom: 2px solid #0eaa00;
-}
-
-form .textField input::-webkit-input-placeholder {
-  color: #eeeeee;
-}
-
-form .textField input:-ms-input-placeholder {
-  color: #eeeeee;
-}
-
-form .textField input::-ms-input-placeholder {
-  color: #eeeeee;
-}
-
-form .textField input::placeholder {
-  color: #eeeeee;
 }
 
 .sex {
@@ -759,62 +760,129 @@ form .textField input::placeholder {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 30px;
+  margin: 0 20px 30px;
 }
 
 .sex p {
-  color: white;
-  font-family: flood-std, sans-serif;
+  color: #2d2d2d;
+  font-family: Baskervville, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .sex input[type="radio"] + label {
-  color: white;
-  border: 2px solid red;
+  color: #2d2d2d;
+  border: 1px solid red;
   padding: 5px 10px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  font-family: flood-std, sans-serif;
+  font-family: Baskervville, sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 15px;
   cursor: pointer;
 }
 
 .sex .man + label {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .sex .woman + label {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .sex input[type="radio"]:checked + label {
-  background-color: red;
-  color: black;
+  border: 1px solid #0eaa00;
+  color: #2d2d2d;
+}
+
+.money {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 20px 20px;
+}
+
+.money p {
+  color: #2d2d2d;
+  font-family: Baskervville, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+}
+
+.money select {
+  width: 100%;
+  outline: none;
+  border: 1px solid red;
+  background-color: white;
+  font-family: lato, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.money select:valid {
+  border: 1px solid #0eaa00;
 }
 
 input[type="submit"] {
-  margin-top: 20px;
-  width: 40%;
+  width: 100%;
   font-size: 20px;
-  padding: 5px 10px;
-  border: 2px solid red;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0);
-  color: #eeeeee;
-  font-family: hilde-sharp, sans-serif;
-  font-weight: 400;
+  padding: 15px 0px;
+  border: 1px solid red;
+  background-color: red;
+  color: white;
+  font-family: Raleway, sans-serif;
+  font-weight: 900;
   font-style: normal;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.hide {
-  display: none;
+input[type="submit"]:hover {
+  letter-spacing: 3px;
 }
 
+@media only screen and (min-width: 700px) {
+  form .textField {
+    position: relative;
+    margin: 0 20px 25px;
+  }
+  form .textField label {
+    font-size: 18px;
+    top: 0px;
+  }
+  form .textField input[type="text"],
+  form .textField input[type="tel"],
+  form .textField input[type="number"],
+  form .textField input[type="email"] {
+    font-size: 16px;
+  }
+  .sex p {
+    font-size: 18px;
+  }
+  .sex input[type="radio"] + label {
+    padding: 5px 13px;
+    font-size: 16px;
+  }
+  .money p {
+    font-size: 18px;
+  }
+  .money select {
+    font-size: 16px;
+  }
+}
+
+/*********** FOOTER *********/
 footer {
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -855,5 +923,10 @@ footer p {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
   }
+}
+
+/******** Generel Classes *********/
+.hide {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */
