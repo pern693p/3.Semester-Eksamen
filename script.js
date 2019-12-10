@@ -38,3 +38,5 @@ function showChosenDuck() {
     console.log("alle ænder valgt");
   }
 }
+
+hello 
