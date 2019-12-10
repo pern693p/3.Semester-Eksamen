@@ -58,85 +58,64 @@
           </div>
         </div>
       </div>
+
+
       <section class="inputFields hide">
+
+          <form class="email hide">
+              <div class="textField">
+                <label for="email"> Indtast din e-mail adresse </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  
+                />
+              </div>
+              <input type="submit" value="Næste" />
+            </form>
         <form class="username">
           <div class="textField">
-            <label for="username"> Hvad må vi kalde dig? </label>
+            <label for="username"> Indtast dit fulde navn </label>
             <input type="text" name="username" id="username" />
           </div>
-          <input type="submit" value="Fisk videre!" />
+          <input type="submit" value="Næste" />
         </form>
 
-        <form class="email hide">
-          <div class="textField">
-            <label for="email"> Hvad kan vi fange dig på? </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Skriv din email her!"
-            />
-          </div>
-          <input type="submit" value="Fisk viderer!" />
-        </form>
+        <div class="formText">Vi mangler lidt flere informationer omkring dig, inden du kan bruge din optjente bonus på karnivalspil.dk</div>
 
         <form class="regi hide">
+            
           <div class="textField">
+           
             <input type="number" name="cpr" id="cpr" required />
             <label for="cpr"> CPR-nummer </label>
           </div>
-          <div class="textField">
-            <input type="text" name="firstname" id="firstname" required />
-            <label for="firstname"> Fornavn </label>
-          </div>
-          <div class="textField">
-            <input type="text" name="lastname" id="lastname" required />
-            <label for="lastname"> Efternavn </label>
-          </div>
-          <div class="textField">
-            <input type="text" name="username" id="username" required />
-            <label for="username"> Brugernavn </label>
-          </div>
-          <div class="textField">
-            <input type="tel" name="mobile" id="mobile" required />
-            <label for="mobile"> Mobilnummer </label>
-          </div>
-          <div class="textField">
-            <input type="email" name="email" id="email" required />
-            <label for="email"> E-mail </label>
-          </div>
+
+         
           <div class="textField">
             <input type="text" name="address" id="address" required />
             <label for="address"> Adresse </label>
           </div>
-          <div class="sex">
-            <p>Køn</p>
-            <div>
-              <input
-                type="radio"
-                name="sex"
-                id="man"
-                required
-                class="hide man"
-              />
-              <label for="man"> Mand </label>
+
+          <div class="textField">
+              <input type="text" name="city" id="city" required />
+              <label for="city"> By </label>
             </div>
-            <div>
-              <input
-                type="radio"
-                name="sex"
-                id="woman"
-                required
-                class="hide woman"
-              />
-              <label for="woman"> Dame </label>
+             
+            <div class="textField">
+                <input type="number" name="zip" id="zip" required />
+                <label for="zip"> Postnummer </label>
+              </div> 
+
+          <div class="textField">
+              <input type="number" name="mobile" id="mobile" required />
+              <label for="mobile"> Telefon</label>
             </div>
-          </div>
-          <div>
-            <input type="text" name="firstname" id="firstname" required />
-            <label for="firstname"> Månedligt Forbrug </label>
-          </div>
-          <input type="submit" />
+         
+        
+          <input type="submit" value="Tilmeld dig">
+
         </form>
       </section>
     </section>

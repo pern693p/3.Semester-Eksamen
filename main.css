@@ -683,6 +683,12 @@ h2 {
           align-items: center;
 }
 
+
+.formText {
+  color: white; 
+  font-family: "Varela Round";
+
+}
 form .textField {
   position: relative;
   margin: 0 0 30px;
@@ -690,10 +696,10 @@ form .textField {
 
 form .textField label {
   color: white;
-  font-family: flood-std, sans-serif;
+font-family: "Varela Round"; 
   font-weight: 400;
   font-style: normal;
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 20px;
   position: absolute;
   z-index: -1;
@@ -725,13 +731,15 @@ form .textField input[type="email"] {
   border: none;
   background-color: rgba(255, 255, 255, 0);
   color: #eeeeee;
-  border-bottom: 2px solid red;
-  font-family: hilde-sharp, sans-serif;
+  border-bottom: 2px solid white;
   font-weight: 400;
   font-style: normal;
 }
 
-form .textField input:valid {
+
+
+
+/* form .textField input:valid {
   border-bottom: 2px solid #0eaa00;
 }
 
@@ -749,70 +757,24 @@ form .textField input::-ms-input-placeholder {
 
 form .textField input::placeholder {
   color: #eeeeee;
-}
+} */
 
-.sex {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr auto auto;
-      grid-template-columns: 1fr auto auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 30px;
-}
 
-.sex p {
-  color: white;
-  font-family: flood-std, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 25px;
-}
-
-.sex input[type="radio"] + label {
-  color: white;
-  border: 2px solid red;
-  padding: 5px 10px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  font-family: flood-std, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  cursor: pointer;
-}
-
-.sex .man + label {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.sex .woman + label {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.sex input[type="radio"]:checked + label {
-  background-color: red;
-  color: black;
-}
 
 input[type="submit"] {
   margin-top: 20px;
-  width: 40%;
   font-size: 20px;
   padding: 5px 10px;
-  border: 2px solid red;
+  border: 2px solid white; 
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0);
-  color: #eeeeee;
-  font-family: hilde-sharp, sans-serif;
+  color: white;
   font-weight: 400;
   font-style: normal;
 }
 
 .hide {
-  display: none;
+  display: none; 
 }
 
 footer {
