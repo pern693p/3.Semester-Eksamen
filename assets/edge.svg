@@ -42,7 +42,7 @@
 <ellipse cx="737.92" cy="23.7298" rx="13.4232" ry="13.5207" transform="rotate(90 737.92 23.7298)" fill="#3D3D3D"/>
 <ellipse cx="781.799" cy="42.7249" rx="13.4232" ry="13.5207" transform="rotate(90 781.799 42.7249)" fill="#3D3D3D"/>
 <ellipse cx="33.8248" cy="40.4457" rx="13.4232" ry="13.5207" transform="rotate(90 33.8248 40.4457)" fill="#3D3D3D"/>
-<circle cx="35.9479" cy="605.332" r="13.3234" fill="#FF0000"/>
+<circle cx="35.9479" cy="605.332" r="13.3234" fill="#FF0000" />
 <circle cx="26.1434" cy="559.078" r="13.3234" fill="#FEE503"/>
 <circle cx="26.1434" cy="512.823" r="13.3234" fill="#1CC637"/>
 <circle cx="26.1434" cy="466.568" r="13.3234" fill="#0500FF"/>

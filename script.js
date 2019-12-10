@@ -1,5 +1,7 @@
 const chosen = [];
 
+window.addEventListener("DOMContentLoaded", loadSVGS);
+
 document.querySelectorAll(".duck").forEach(duck => {
   duck.addEventListener("click", clickedDuck);
 });
@@ -37,4 +39,11 @@ function showChosenDuck() {
   } else if (chosen.length > 3) {
     console.log("alle ænder valgt");
   }
+}
+
+async function loadSVGS() {
+  const edgeSvg = await fetch("/assets/edge.svg");
+  const edge = await edgeSvg.text();
+
+  document.querySelector(".edge").innerHTML = edge;
 }

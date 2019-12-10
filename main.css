@@ -146,10 +146,6 @@ h2 {
 }
 
 #game {
-  background-image: url(/assets/edge.svg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   display: -ms-grid;
@@ -162,6 +158,247 @@ h2 {
   justify-items: center;
   position: relative;
   z-index: 2;
+}
+
+#game .edge svg {
+  height: 100%;
+  width: 100%;
+}
+
+#game .edge svg circle[fill="#FF0000"] {
+  -webkit-animation: redLightChange 4s linear infinite;
+          animation: redLightChange 4s linear infinite;
+}
+
+#game .edge svg circle[fill="#FEE503"] {
+  -webkit-animation: greenLightChange 4s linear infinite;
+          animation: greenLightChange 4s linear infinite;
+}
+
+#game .edge svg circle[fill="#1CC637"] {
+  -webkit-animation: blueLightChange 4s linear infinite;
+          animation: blueLightChange 4s linear infinite;
+}
+
+#game .edge svg circle[fill="#0500FF"] {
+  -webkit-animation: yellowLightChange 4s linear infinite;
+          animation: yellowLightChange 4s linear infinite;
+}
+
+@-webkit-keyframes redLightChange {
+  0% {
+    fill: #ff0000;
+  }
+  25% {
+    fill: #ff0000;
+  }
+  26% {
+    fill: #fee503;
+  }
+  50% {
+    fill: #fee503;
+  }
+  51% {
+    fill: #0500ff;
+  }
+  75% {
+    fill: #0500ff;
+  }
+  76% {
+    fill: #1cc637;
+  }
+  100% {
+    fill: #1cc637;
+  }
+}
+
+@keyframes redLightChange {
+  0% {
+    fill: #ff0000;
+  }
+  25% {
+    fill: #ff0000;
+  }
+  26% {
+    fill: #fee503;
+  }
+  50% {
+    fill: #fee503;
+  }
+  51% {
+    fill: #0500ff;
+  }
+  75% {
+    fill: #0500ff;
+  }
+  76% {
+    fill: #1cc637;
+  }
+  100% {
+    fill: #1cc637;
+  }
+}
+
+@-webkit-keyframes greenLightChange {
+  0% {
+    fill: #1cc637;
+  }
+  25% {
+    fill: #1cc637;
+  }
+  26% {
+    fill: #ff0000;
+  }
+  50% {
+    fill: #ff0000;
+  }
+  51% {
+    fill: #fee503;
+  }
+  75% {
+    fill: #fee503;
+  }
+  76% {
+    fill: #0500ff;
+  }
+  100% {
+    fill: #0500ff;
+  }
+}
+
+@keyframes greenLightChange {
+  0% {
+    fill: #1cc637;
+  }
+  25% {
+    fill: #1cc637;
+  }
+  26% {
+    fill: #ff0000;
+  }
+  50% {
+    fill: #ff0000;
+  }
+  51% {
+    fill: #fee503;
+  }
+  75% {
+    fill: #fee503;
+  }
+  76% {
+    fill: #0500ff;
+  }
+  100% {
+    fill: #0500ff;
+  }
+}
+
+@-webkit-keyframes blueLightChange {
+  0% {
+    fill: #0500ff;
+  }
+  25% {
+    fill: #0500ff;
+  }
+  26% {
+    fill: #1cc637;
+  }
+  50% {
+    fill: #1cc637;
+  }
+  51% {
+    fill: #ff0000;
+  }
+  75% {
+    fill: #ff0000;
+  }
+  76% {
+    fill: #fee503;
+  }
+  100% {
+    fill: #fee503;
+  }
+}
+
+@keyframes blueLightChange {
+  0% {
+    fill: #0500ff;
+  }
+  25% {
+    fill: #0500ff;
+  }
+  26% {
+    fill: #1cc637;
+  }
+  50% {
+    fill: #1cc637;
+  }
+  51% {
+    fill: #ff0000;
+  }
+  75% {
+    fill: #ff0000;
+  }
+  76% {
+    fill: #fee503;
+  }
+  100% {
+    fill: #fee503;
+  }
+}
+
+@-webkit-keyframes yellowLightChange {
+  0% {
+    fill: #fee503;
+  }
+  25% {
+    fill: #fee503;
+  }
+  26% {
+    fill: #0500ff;
+  }
+  50% {
+    fill: #0500ff;
+  }
+  51% {
+    fill: #1cc637;
+  }
+  75% {
+    fill: #1cc637;
+  }
+  76% {
+    fill: #ff0000;
+  }
+  100% {
+    fill: #ff0000;
+  }
+}
+
+@keyframes yellowLightChange {
+  0% {
+    fill: #fee503;
+  }
+  25% {
+    fill: #fee503;
+  }
+  26% {
+    fill: #0500ff;
+  }
+  50% {
+    fill: #0500ff;
+  }
+  51% {
+    fill: #1cc637;
+  }
+  75% {
+    fill: #1cc637;
+  }
+  76% {
+    fill: #ff0000;
+  }
+  100% {
+    fill: #ff0000;
+  }
 }
 
 #game .ducks {
