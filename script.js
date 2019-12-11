@@ -4,7 +4,9 @@ document.querySelectorAll(".duck").forEach(duck => {
   duck.addEventListener("click", clickedDuck);
 });
 
-function clickedDuck() {
+
+function clickedDuck() {  
+
   if (chosen.length < 3) {
     this.classList.add("chosen");
   }
@@ -37,6 +39,34 @@ function showChosenDuck() {
   } else if (chosen.length > 3) {
     console.log("alle ænder valgt");
   }
+  if (chosen.length) {
+    setTimeout(function(){ formOverlay() }, 1000);
+  }
 }
 
-hello 
+function formOverlay() {
+  document.querySelector(".inputFields").classList.remove("hide");
+
+  if (chosen.length == 1) {
+    document.querySelector(".email").classList.remove("hide");
+  } else if (chosen.length == 2) {
+    document.querySelector(".username").classList.remove("hide");
+  } else if (chosen.length == 3) {
+    document.querySelector(".regi").classList.remove("hide");
+  }
+  
+  document.querySelectorAll("form").forEach(el => {
+    el.addEventListener("submit", function(event) {
+      document.querySelector(".inputFields").classList.add("hide");
+      event.preventDefault();
+      if (chosen.length == 1) {
+        document.querySelector(".email").classList.add("hide");
+      } else if (chosen.length == 2) {
+        document.querySelector(".username").classList.add("hide");
+      } else if (chosen.length == 3) {
+        document.querySelector(".regi").classList.add("hide");
+      }
+    })
+  })
+  
+}

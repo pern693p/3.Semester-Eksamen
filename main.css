@@ -676,19 +676,18 @@ h2 {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   justify-items: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
-
 
 .formText {
   color: white; 
   font-family: "Varela Round";
-
 }
+
 form .textField {
   position: relative;
   margin: 0 0 30px;
@@ -696,7 +695,7 @@ form .textField {
 
 form .textField label {
   color: white;
-font-family: "Varela Round"; 
+  font-family: "Varela Round"; 
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
@@ -736,9 +735,6 @@ form .textField input[type="email"] {
   font-style: normal;
 }
 
-
-
-
 /* form .textField input:valid {
   border-bottom: 2px solid #0eaa00;
 }
@@ -759,8 +755,6 @@ form .textField input::placeholder {
   color: #eeeeee;
 } */
 
-
-
 input[type="submit"] {
   margin-top: 20px;
   font-size: 20px;
@@ -775,6 +769,17 @@ input[type="submit"] {
 
 .hide {
   display: none; 
+}
+
+/* vis eller skjul popup baseret på valgte ænder */ 
+.inputFields[data-chosen-ducks="1"] .email.hide {
+    display: block;
+}
+.inputFields[data-chosen-ducks="2"] .username.hide {
+  display: block;
+}
+.inputFields[data-chosen-ducks="3"] {
+
 }
 
 footer {
