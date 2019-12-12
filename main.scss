@@ -58,6 +58,11 @@ h2 {
       font-family: sans-serif;
       cursor: pointer;
 
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
       .icon {
         background-image: url(/assets/admin_button.svg);
         background-size: contain;
