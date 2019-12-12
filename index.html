@@ -6,28 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lvx7ggd.css" />
-    <link href="https://fonts.googleapis.com/css?family=Baskervville|Lato|Raleway&display=swap" rel="stylesheet" />
-    <title>CarnivalGames</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet" />
+    <title>Karnevalspil.dk</title>
   </head>
   <body>
+    <header class="heading">
+      <img src="assets/logo.svg" />
+      <a href="login.html"><img src="assets/admin_button.svg"/></a>
+    </header>
+
+    <div class="tent_top"></div>
+
+    <div class="loading_ducks">
+      <div class="load"></div>
+      <div class="load"></div>
+      <div class="load"></div>
+    </div>
+
+    <section class="curtain">
+      <div class="curtain__wrapper">
+        <div class="curtain__panel left"></div>
+        <div class="curtain__prize"></div>
+        <div class="curtain__panel right"></div>
+      </div>
+    </section>
+
     <section id="tentBackground">
-      <header class="heading">
-        <div class="heading">
-          <div class="logo"></div>
-        </div>
-        <div class="admin">
-          <a href="login.html">
-            <div class="icon"></div>
-            <p>Admin</p>
-          </a>
-        </div>
-      </header>
       <div class="gameGrid">
         <div class="water">
+          <div class="startscreen">
+            <h1>Andedammen</h1>
+            <p>
+              Som en tak for at du har valgt at besøge vores side, giver vi dig nu muligheden for at vinde 300 kr. til vores spillemaskiner! Det eneste du skal gøre er at vælge 3 ænder i vores
+              andespil og se gevinsten for din fangst, nemt ikke?
+            </p>
+            <div class="play_button"><p>SPIL!</p></div>
+          </div>
           <div id="game">
             <div class="edge"></div>
-            <div class="ripple"></div>
-            <div class="ducks">
+            <div class="ripple gone"></div>
+            <div class="ducks gone">
               <div class="duck one duck1"></div>
               <div class="duck two duck2"></div>
               <div class="duck one duck3"></div>
@@ -40,9 +58,10 @@
           </div>
         </div>
         <div id="tablet">
-          <h3>Andedammen</h3>
           <p>Tryk på en and og se hvor mange penge den er værd!</p>
-          <p>Du kan vælge op til tre ænder som er mellem 25kr, 50kr, 75kr eller 100kr værd.</p>
+          <p>
+            Du kan vælge op til tre ænder som er mellem 25kr, 50kr, 75kr eller 100kr værd.
+          </p>
           <div class="yourducks">
             <div class="first points">
               <div class="chosenduck"></div>
@@ -59,6 +78,7 @@
           </div>
         </div>
       </div>
+
       <section class="inputFields hide">
         <form action="" class="hide">
           <div class="textField">
@@ -141,16 +161,15 @@
             og se gevinsten for din fangst, nemt ikke?
           </p>
           <p>
-            Max. et spil pr. kunde. Ikke indbetalingsbetingen. Skal omsættes en gang på sidens spilleautomater eller casino inden for 30 dage efter aktivering. 18+. Få hjælp til at stoppe ludomani:
-            Stopspillet.dk. Rofus.nu.
+            Spillekronerne skal omsættes én gang på Spille- eller Jackpotautomater
           </p>
         </div>
         <div>
-          <h4>REGLER OG VILKÅR.</h4>
-          <p>Tilbuddet kan kun benyttes én gang pr. kunde.</p>
-          <p>Spillekronerne skal omsættes én gang på Spille- eller Jackpotautomater</p>
           <p>Kampagnen er ikke indbetalingsbetinget.</p>
-          <p>Kampagnen er kun åben for kunder, der er minimum 18 år og bosiddende i Danmark.</p>
+          <p>
+            Kampagnen er kun åben for kunder, der er minimum 18 år og bosiddende i Danmark.
+          </p>
+          <p>Få hjælp til at stoppe ludomani: Stopspillet.dk. Rofus.nu.</p>
         </div>
       </div>
     </footer>
