@@ -898,10 +898,6 @@ header img:nth-last-child(1) {
   background-position: 0px 0;
 }
 
-.gone {
-  display: none;
-}
-
 @media only screen and (min-width: 1000px) {
   .gameGrid {
     display: -ms-grid;
@@ -1355,4 +1351,107 @@ footer p {
 .fade_out {
   transition: all 2s ease-out;
   opacity: 0;
+}
+
+/* LISTE */
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 20px auto;
+  max-width: 90%;
+}
+
+.liste h1,
+.liste h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+h8 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 100;
+}
+
+.liste {
+  margin: 20px;
+  border: none;
+  padding: 10px;
+  background-color: rgb(187, 187, 187);
+  border-radius: 5px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+}
+
+.liste button {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.admin {
+  background-image: none;
+}
+
+.overskrift {
+  display: grid;
+  width: 100%;
+  grid-template-areas: "a . . b b . c";
+}
+
+.overskrift h2 {
+  align-self: center;
+  grid-area: b;
+}
+
+.overskrift a {
+  grid-area: c;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: auto 6px;
+  cursor: pointer;
+  color: black;
+  background-color: rgb(207, 207, 207);
+  text-decoration: none;
+  font-family: "Varela Round", sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+#editForm {
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+#editForm label {
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
+}
+
+#editForm input {
+  width: 100%;
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+#editForm div {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.gone {
+  display: none;
 }

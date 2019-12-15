@@ -16,11 +16,15 @@ function hideLoading() {
   document.querySelector(".left").classList.add("slide_out_left");
   document.querySelector(".right").classList.add("slide_out_right");
   document.querySelector(".loading_ducks").classList.add("fade_out");
-  document.querySelector(".loading_ducks").addEventListener("transitionend", () => {
-    document.querySelector(".loading_ducks").classList.add("gone");
+  document
+    .querySelector(".loading_ducks")
+    .addEventListener("transitionend", () => {
+      document.querySelector(".loading_ducks").classList.add("gone");
 
-    document.querySelector(".play_button").addEventListener("click", startGame);
-  });
+      document
+        .querySelector(".play_button")
+        .addEventListener("click", startGame);
+    });
 }
 
 function startGame() {
@@ -54,13 +58,16 @@ function clickedDuck() {
 function showChosenDuck() {
   if (chosen.length === 1) {
     document.querySelector(".first p").textContent = `${chosen[0]} kr`;
-    document.querySelector(".first .chosenduck").style.backgroundPosition = "100px 0";
+    document.querySelector(".first .chosenduck").style.backgroundPosition =
+      "100px 0";
   } else if (chosen.length === 2) {
     document.querySelector(".second p").textContent = `${chosen[1]} kr`;
-    document.querySelector(".second .chosenduck").style.backgroundPosition = "100px 0";
+    document.querySelector(".second .chosenduck").style.backgroundPosition =
+      "100px 0";
   } else if (chosen.length === 3) {
     document.querySelector(".third p").textContent = `${chosen[2]} kr`;
-    document.querySelector(".third .chosenduck").style.backgroundPosition = "100px 0";
+    document.querySelector(".third .chosenduck").style.backgroundPosition =
+      "100px 0";
   } else if (chosen.length > 3) {
     console.log("alle ænder valgt");
   }
