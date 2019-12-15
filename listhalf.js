@@ -1,5 +1,4 @@
 // const form = document.querySelector("form#addForm");
-const formEdit = document.querySelector("form#editForm");
 // form.setAttribute("novalidate", true);
 
 // form.elements.name.addEventListener("focus", e => {
@@ -18,6 +17,12 @@ const formEdit = document.querySelector("form#editForm");
 
 // document.querySelector(".rediger").addEventListener("click", showform);
 // document.querySelector(".færdig").addEventListener("click", closeform);
+
+document.addEventListener("DOMContentLoaded", start);
+
+function start() {
+  get();
+}
 
 function closeform(id) {
   document.querySelectorAll(".liste").forEach(e => {
@@ -42,8 +47,6 @@ function get() {
       brugere.forEach(addUserToTheDOM);
     });
 }
-
-get();
 
 function addUserToTheDOM(liste) {
   const template = document.querySelector("template").content;
