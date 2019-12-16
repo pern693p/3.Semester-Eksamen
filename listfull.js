@@ -1,24 +1,3 @@
-// const form = document.querySelector("form#addForm");
-
-// form.setAttribute("novalidate", true);
-
-// form.elements.name.addEventListener("focus", e => {
-//   form.elements.name.classList.remove("notValid");
-// });
-// form.elements.name.addEventListener("blur", e => {
-//   if (form.elements.name.checkValidity()) {
-//     form.elements.name.classList.remove("notValid");
-//   } else form.elements.name.classList.add("notValid");
-// });
-
-// form.addEventListener("submit", evt => {
-//   post();
-//   evt.preventDefault();
-// });
-
-// document.querySelector(".rediger").addEventListener("click", showform);
-// document.querySelector(".færdig").addEventListener("click", closeform);
-
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
@@ -59,10 +38,11 @@ function addUserToTheDOM(liste) {
   copy.querySelector("h2").textContent = `Fornavn: ${liste.name}`;
   copy.querySelector("h3").textContent = `Efternavn: ${liste.lastname}`;
   copy.querySelector("h4").textContent = `Brugernavn: ${liste.username}`;
-  copy.querySelector("h5").textContent = `Mobil: ${liste.mobile}`;
-  copy.querySelector("h6").textContent = `Adresse: ${liste.address}`;
-  copy.querySelector("h7").textContent = `Køn: ${liste.gender}`;
-  copy.querySelector("h8").textContent = `Indestående: ${liste.estimated}`;
+  copy.querySelector("h5").textContent = `Email: ${liste.email}`;
+  copy.querySelector("h6").textContent = `Mobil: ${liste.mobile}`;
+  copy.querySelector("h7").textContent = `Adresse: ${liste.address}`;
+  copy.querySelector("h8").textContent = `Køn: ${liste.gender}`;
+  copy.querySelector("h9").textContent = `Indestående: ${liste.estimated}`;
 
   copy.querySelector("button.btnDelete").addEventListener("click", e => {
     const target = e.target.closest("article");
@@ -99,6 +79,7 @@ function fetchAndPopulate(id) {
             bruger.lastname;
           e.querySelector("#editForm").elements.username.value =
             bruger.username;
+          e.querySelector("#editForm").elements.email.value = bruger.email;
           e.querySelector("#editForm").elements.mobile.value = bruger.mobile;
           e.querySelector("#editForm").elements.address.value = bruger.address;
           e.querySelector("#editForm").elements.gender.value = bruger.gender;
@@ -116,40 +97,13 @@ function fetchAndPopulate(id) {
   });
 }
 
-function post() {
-  const data = {
-    cpr: form.elements.cpr.value,
-    name: form.elements.name.value,
-    lastname: form.elements.lastname.value,
-    username: form.elements.username.value,
-    mobile: form.elements.mobile.value,
-    address: form.elements.address.value,
-    gender: form.elements.gender.value,
-    estimated: form.elements.estimated.value
-  };
-
-  addUserToTheDOM(data);
-
-  const postData = JSON.stringify(data);
-  fetch("https://eksamen-f310.restdb.io/rest/brugere", {
-    method: "post",
-    headers: {
-      "content-type": "application/json; charset=utf-8",
-      "x-apikey": "5de4cc954658275ac9dc2176",
-      "cache-control": "no-cache"
-    },
-    body: postData
-  })
-    .then(res => res.json())
-    .then(data => {});
-}
-
 function put(e, id) {
   const data = {
     cpr: e.querySelector("#editForm").elements.cpr.value,
     name: e.querySelector("#editForm").elements.name.value,
     lastname: e.querySelector("#editForm").elements.lastname.value,
     username: e.querySelector("#editForm").elements.username.value,
+    email: e.querySelector("#editForm").elements.email.value,
     mobile: e.querySelector("#editForm").elements.mobile.value,
     address: e.querySelector("#editForm").elements.address.value,
     gender: e.querySelector("#editForm").elements.gender.value,
@@ -158,8 +112,6 @@ function put(e, id) {
 
   closeform(id);
 
-  let postData = JSON.stringify(data);
-
   fetch(`https://eksamen-f310.restdb.io/rest/brugere/${e.dataset.listeid}`, {
     method: "put",
     headers: {
@@ -167,7 +119,7 @@ function put(e, id) {
       "x-apikey": "5de4cc954658275ac9dc2176",
       "cache-control": "no-cache"
     },
-    body: postData
+    body: JSON.stringify(data)
   })
     .then(res => res.json())
     .then(updatedListe => {
@@ -189,15 +141,18 @@ function put(e, id) {
       ).textContent = `Brugernavn: ${updatedListe.username}`;
       parentElement.querySelector(
         "h5"
-      ).textContent = `Mobil: ${updatedListe.mobile}`;
+      ).textContent = `Email: ${updatedListe.email}`;
       parentElement.querySelector(
         "h6"
-      ).textContent = `Adresse: ${updatedListe.address}`;
+      ).textContent = `Mobil: ${updatedListe.mobile}`;
       parentElement.querySelector(
         "h7"
-      ).textContent = `Køn: ${updatedListe.gender}`;
+      ).textContent = `Adresse: ${updatedListe.address}`;
       parentElement.querySelector(
         "h8"
+      ).textContent = `Køn: ${updatedListe.gender}`;
+      parentElement.querySelector(
+        "h9"
       ).textContent = `Indestående: ${updatedListe.estimated}`;
     });
 }

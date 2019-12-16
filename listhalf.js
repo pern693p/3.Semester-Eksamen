@@ -1,23 +1,3 @@
-// const form = document.querySelector("form#addForm");
-// form.setAttribute("novalidate", true);
-
-// form.elements.name.addEventListener("focus", e => {
-//   form.elements.name.classList.remove("notValid");
-// });
-// form.elements.name.addEventListener("blur", e => {
-//   if (form.elements.name.checkValidity()) {
-//     form.elements.name.classList.remove("notValid");
-//   } else form.elements.name.classList.add("notValid");
-// });
-
-// form.addEventListener("submit", evt => {
-//   post();
-//   evt.preventDefault();
-// });
-
-// document.querySelector(".rediger").addEventListener("click", showform);
-// document.querySelector(".færdig").addEventListener("click", closeform);
-
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
@@ -99,30 +79,6 @@ function fetchAndPopulate(id) {
   });
 }
 
-function post() {
-  const data = {
-    name: form.elements.name.value,
-    email: form.elements.email.value
-  };
-
-  addUserToTheDOM(data);
-
-  const postData = JSON.stringify(data);
-  fetch("https://eksamenhalvt-0223.restdb.io/rest/brugere", {
-    method: "post",
-    headers: {
-      "content-type": "application/json; charset=utf-8",
-      "x-apikey": "5de81a1d4658275ac9dc22e2",
-      "cache-control": "no-cache"
-    },
-    body: postData
-  })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-    });
-}
-
 function put(e, id) {
   const data = {
     name: e.querySelector("#editForm").elements.name.value,
@@ -130,8 +86,6 @@ function put(e, id) {
   };
 
   closeform(id);
-
-  let postData = JSON.stringify(data);
 
   fetch(
     `https://eksamenhalvt-0223.restdb.io/rest/brugere/${e.dataset.listeid}`,
@@ -142,7 +96,7 @@ function put(e, id) {
         "x-apikey": "5de81a1d4658275ac9dc22e2",
         "cache-control": "no-cache"
       },
-      body: postData
+      body: JSON.stringify(data)
     }
   )
     .then(res => res.json())

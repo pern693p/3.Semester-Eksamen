@@ -4,16 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="This is a site designed to reel in new customers for our gambling website." />
+    <meta
+      name="description"
+      content="This is a site designed to reel in new customers for our gambling website."
+    />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="https://use.typekit.net/lvx7ggd.css" />
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
     <title>Andedammen</title>
   </head>
   <body>
     <header class="heading">
       <img src="assets/logo.svg" alt="logo" />
-      <a href="login.html"><img src="assets/admin_button.svg" alt="admin button"/></a>
+      <a href="login.html"
+        ><img src="assets/admin_button.svg" alt="admin button"
+      /></a>
     </header>
 
     <div class="tent_top"></div>
@@ -38,8 +46,10 @@
           <div class="startscreen">
             <h1>Andedammen</h1>
             <p>
-              Som en tak for at du har valgt at besøge vores side, giver vi dig nu muligheden for at vinde 300 kr. til vores spillemaskiner! Det eneste du skal gøre er at vælge 3 ænder i vores
-              andespil og se gevinsten for din fangst, nemt ikke?
+              Som en tak for at du har valgt at besøge vores side, giver vi dig
+              nu muligheden for at vinde 300 kr. til vores spillemaskiner! Det
+              eneste du skal gøre er at vælge 3 ænder i vores andespil og se
+              gevinsten for din fangst, nemt ikke?
             </p>
             <div class="play_button"><p>SPIL!</p></div>
           </div>
@@ -61,7 +71,8 @@
         <div id="tablet">
           <p>Tryk på en and og se hvor mange penge den er værd!</p>
           <p>
-            Du kan vælge op til tre ænder som er mellem 25kr, 50kr, 75kr eller 100kr værd.
+            Du kan vælge op til tre ænder som er mellem 25kr, 50kr, 75kr eller
+            100kr værd.
           </p>
           <div class="yourducks">
             <div class="first points">
@@ -81,20 +92,22 @@
       </div>
 
       <section class="inputFields hide">
-        <form action="" class="username hide">
-          <div class="textField">
-            <input type="text" name="username" id="username" required />
-            <label for="username"> Hvad må vi kalde dig? </label>
+        <form id="addHalf">
+          <div class="form email hide">
+            <div class="textField">
+              <input type="email" name="email"  />
+              <label for="email">Fortæl os din Email</label>
+            </div>
+            <button class="submitHalfEmail">Fisk videre!</button>
           </div>
-          <input type="submit" value="Fisk videre!" />
-        </form>
 
-        <form class="email hide">
-          <div class="textField">
-            <input type="email" name="email" id="email" required />
-            <label for="email">Fortæl os din Email</label>
+          <div class="form username hide">
+            <div class="textField">
+              <input type="text" name="name"  />
+              <label for="name"> Hvad må vi kalde dig? </label>
+            </div>
+            <button class="submitHalfName">Fisk videre!</button>
           </div>
-          <input type="submit" value="Fisk videre!" />
         </form>
 
         <form class="regi hide">
@@ -111,15 +124,15 @@
             <label for="lastname"> Efternavn </label>
           </div>
           <div class="textField">
-            <input type="text" name="username" id="username" required />
-            <label for="username"> Brugernavn </label>
+            <input type="text" name="usernamefull" id="username" required />
+            <label for="usernamefull"> Brugernavn </label>
           </div>
           <div class="textField">
             <input type="tel" name="mobile" id="mobile" required />
             <label for="mobile"> Mobilnummer </label>
           </div>
           <div class="textField">
-            <input type="email" name="email" id="email" required />
+            <input type="email" name="email" id="emailfull" required />
             <label for="email"> E-mail </label>
           </div>
           <div class="textField">
@@ -129,27 +142,33 @@
           <div class="sex">
             <p>Køn</p>
             <div>
-              <input type="radio" name="sex" id="man" required class="hide man" />
+              <input
+                type="radio"
+                name="sex"
+                id="man"
+                value="man"
+                required
+                class="hide man"
+              />
               <label for="man"> Mand </label>
             </div>
             <div>
-              <input type="radio" name="sex" id="woman" required class="hide woman" />
+              <input
+                type="radio"
+                name="sex"
+                id="woman"
+                value="woman"
+                required
+                class="hide woman"
+              />
               <label for="woman"> Dame </label>
             </div>
           </div>
           <div class="money">
-            <p>Månedenligt forbrug</p>
-            <div>
-              <select name="spendings" id="spendings" required>
-                <option value=""></option>
-                <option value="0-1000">0-1.000kr</option>
-                <option value="1001-5000">1.001-5.000kr</option>
-                <option value="5001-10000">5.001-10.000kr</option>
-                <option value="10000+">10.000kr+</option>
-              </select>
-            </div>
+            <p>Din saldo:</p>
+            <div></div>
           </div>
-          <a href="karnevalspil.html"> <input type="submit" value="Registrer"/></a>
+          <div class="mainSiteLink">Registrer</div>
         </form>
       </section>
     </section>
@@ -158,17 +177,21 @@
         <div>
           <h2>Andedammen</h2>
           <p>
-            Som en tak for at du har valgt at besøge vores side, giver vi dig nu muligheden for at vinde 300 kr. til vores spillemaskiner! Det eneste du skal gøre er at vælge 3 ænder i vores andespil
-            og se gevinsten for din fangst, nemt ikke?
+            Som en tak for at du har valgt at besøge vores side, giver vi dig nu
+            muligheden for at vinde 300 kr. til vores spillemaskiner! Det eneste
+            du skal gøre er at vælge 3 ænder i vores andespil og se gevinsten
+            for din fangst, nemt ikke?
           </p>
           <p>
-            Spillekronerne skal omsættes én gang på Spille- eller Jackpotautomater
+            Spillekronerne skal omsættes én gang på Spille- eller
+            Jackpotautomater
           </p>
         </div>
         <div>
           <p>Kampagnen er ikke indbetalingsbetinget.</p>
           <p>
-            Kampagnen er kun åben for kunder, der er minimum 18 år og bosiddende i Danmark.
+            Kampagnen er kun åben for kunder, der er minimum 18 år og bosiddende
+            i Danmark.
           </p>
           <p>Få hjælp til at stoppe ludomani: Stopspillet.dk. Rofus.nu.</p>
         </div>
@@ -177,9 +200,21 @@
 
     <svg class="hide">
       <filter id="turbulence" x="0" y="0" width="100%" height="100%">
-        <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
+        <feTurbulence
+          id="sea-filter"
+          numOctaves="3"
+          seed="2"
+          baseFrequency="0.02 0.05"
+        ></feTurbulence>
         <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
-        <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite" />
+        <animate
+          xlink:href="#sea-filter"
+          attributeName="baseFrequency"
+          dur="60s"
+          keyTimes="0;0.5;1"
+          values="0.02 0.06;0.04 0.08;0.02 0.06"
+          repeatCount="indefinite"
+        />
       </filter>
     </svg>
 
