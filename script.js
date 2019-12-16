@@ -71,7 +71,7 @@ function showChosenDuck() {
   if (chosen.length) {
     setTimeout(function() {
       formOverlay();
-    }, 1000);
+    }, 2000);
   }
 }
 

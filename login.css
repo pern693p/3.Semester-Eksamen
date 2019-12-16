@@ -43,7 +43,7 @@ input {
   box-shadow: 2px 4px 10px grey;
 }
 
-input[type="submit"] {
+a {
   margin: 5px 25px;
   padding: 5px 25px;
   font-size: 15px;
@@ -52,4 +52,6 @@ input[type="submit"] {
   float: right;
   border: none;
   background-color: lightgray;
+  text-decoration: none;
+  color: black;
 }
