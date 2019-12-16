@@ -135,23 +135,23 @@ function formOverlay() {
       .addEventListener("click", async function(event) {
         await postFull(sum);
         event.preventDefault();
-        // deleteBruger(currentID);
+        deleteBruger(currentID);
       });
   }
 
-  // function deleteBruger(id) {
-  //   console.log(id);
-  //   fetch(`https://eksamenhalvt-0223.restdb.io/rest/brugere/${id}`, {
-  //     method: "delete",
-  //     headers: {
-  //       "content-type": "application/json; charset=utf-8",
-  //       "x-apikey": "5de4cc954658275ac9dc2176",
-  //       "cache-control": "no-cache"
-  //     }
-  //   })
-  //     .then(res => res.json())
-  //     .then(d => {});
-  // }
+  function deleteBruger(id) {
+    console.log(id);
+    fetch(`https://eksamenhalvt-0223.restdb.io/rest/brugere/${id}`, {
+      method: "delete",
+      headers: {
+        "content-type": "application/json; charset=utf-8",
+        "x-apikey": "5de4cc954658275ac9dc2176",
+        "cache-control": "no-cache"
+      }
+    })
+      .then(res => res.json())
+      .then(d => {});
+  }
 
   function calculateSum() {
     const sum = chosen.reduce(add, 0);
