@@ -1,3 +1,9 @@
+:root {
+  --yellow: #ffda12;
+  --headingFont: "Chocolate";
+  --bodyText: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +22,7 @@ p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h1 {
-  font-family: "chocolate";
+  font-family: var(--headingFont);
 }
 
 body {
@@ -100,7 +106,7 @@ header img:nth-last-child(1) {
 }
 
 .startscreen h1 {
-  color: #ffda12;
+  color: var(--yellow);
   margin: 40px 0 10px;
   font-size: 35px;
 }
@@ -114,7 +120,7 @@ header img:nth-last-child(1) {
   padding: 12px 25px;
   border-radius: 5px;
   z-index: 4;
-  background-color: #ffda12;
+  background-color: var(--yellow);
   margin: 20px auto 50px;
   cursor: pointer;
 }
