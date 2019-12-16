@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body class="admin">
+    <header>
+      <div class="overskrift">
+        <img src="assets/logo.svg" />
+        <h2>Liste over fuldt oprettede brugere</h2>
+        <a href="adminhalf.html">Se halve abonnenter</a>
+      </div>
+    </header>
+
+    <!-- <form id="addForm" class="remove">
+      <label>CPR</label><input type="number" name="cpr" /> <label>Navn</label
+      ><input type="text" name="name" /> <label>Efternavn</label
+      ><input type="text" name="lastname" /> <label>Brugernavn</label
+      ><input type="text" name="username" /> <label>Mobil</label
+      ><input type="number" name="mobile" /> <label>Adresse</label
+      ><input type="text" name="address" /> <label>Køn</label
+      ><input type="text" name="gender" />
+      <label>Forventet månedligt forbrug</label
+      ><input type="number" name="estimated" />
+      <button type="submit" name="submit">Opret</button>
+    </form> -->
+
+    <div id="app"></div>
+    <template>
+      <article class="liste">
+        <div class="user">
+          <h1></h1>
+          <h2></h2>
+          <h3></h3>
+          <h4></h4>
+          <h5></h5>
+          <h6></h6>
+          <h7></h7>
+          <h8></h8>
+          <div class="knapper">
+            <button class="btnDelete">Slet bruger</button>
+            <button class="btnEdit">Rediger bruger</button>
+          </div>
+        </div>
+
+        <div id="form" class="gone">
+          <form id="editForm" class="remove">
+            <label>CPR</label><input type="tel" name="cpr" /> <label>Navn</label
+            ><input type="text" name="name" /> <label>Efternavn</label
+            ><input type="text" name="lastname" /> <label>Brugernavn</label
+            ><input type="text" name="username" /> <label>Mobil</label
+            ><input type="tel" name="mobile" /> <label>Adresse</label
+            ><input type="text" name="address" /> <label>Køn</label
+            ><input type="text" name="gender" /> <label>Indestående</label
+            ><input type="tel" name="estimated" />
+            <input type="hidden" name="id" />
+            <button type="submit" name="submit" class="knap">
+              Rediger
+            </button>
+          </form>
+        </div>
+      </article>
+    </template>
+
+    <script src="listfull.js"></script>
+  </body>
+</html>
