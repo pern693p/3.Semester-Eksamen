@@ -17,17 +17,18 @@ p {
 }
 h1 {
   font-family: "chocolate";
-  font-size: 100px;
 }
 
 body {
   overscroll-behavior: none;
   background-image: url(/assets/tent.svg);
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   height: min-content;
   background-size: cover;
+  background-position: center;
   overflow-x: hidden;
+  background-repeat: no-repeat;
 }
 
 /* #tentBackground {
@@ -81,42 +82,115 @@ header img:nth-last-child(1) {
   max-height: 320px;
   background-color: #000000;
   position: absolute;
-  border-radius: 100px;
-  display: flex;
-  flex-direction: column;
+  border-radius: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.startscreenText {
+  width: fit-content;
 }
 
 .startscreen h1,
 .startscreen p {
   color: white;
   z-index: 4;
-  margin: 100px auto 0px;
-  max-width: 60%;
 }
 
 .startscreen h1 {
-  max-width: 40%;
-
   color: #ffda12;
+  margin: 40px 0 10px;
+  font-size: 35px;
+}
+
+.startscreen p {
+  font-size: 10px;
+  width: 75%;
 }
 
 .play_button {
-  width: 100px;
-  height: 50px;
+  padding: 12px 25px;
   border-radius: 5px;
   z-index: 4;
   background-color: #ffda12;
-  margin: 100px auto 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 20px auto 50px;
   cursor: pointer;
 }
 
 .play_button p {
+  font-size: 13px;
   margin: 0;
+  font-weight: 600;
   color: black;
   font-family: "Varela Round", sans-serif;
+}
+
+@media only screen and (min-width: 500px) {
+  .startscreen {
+    height: 67.575vw;
+    width: 85vw;
+    max-width: 402.5px;
+    max-height: 320px;
+  }
+
+  .startscreen h1 {
+    font-size: 35px;
+  }
+
+  .startscreen p {
+    font-size: 13px;
+  }
+
+  .play_button p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .startscreen {
+    height: 43.725vw;
+    width: 55vw;
+    max-width: 625px;
+    max-height: 496.875px;
+  }
+
+  .startscreen h1 {
+    font-size: 45px;
+    margin: 40px 0 -20px;
+  }
+
+  .startscreen p {
+    font-size: 16px;
+  }
+
+  .play_button p {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .startscreen {
+    height: 43.725vw;
+    width: 55vw;
+    max-width: 900px;
+    max-height: 715.5px;
+    border-radius: 50px;
+  }
+
+  .startscreen h1 {
+    font-size: 80px;
+    margin: 60px 0 -70px;
+  }
+
+  .startscreen p {
+    font-size: 24px;
+  }
+
+  .play_button p {
+    font-size: 30px;
+  }
 }
 
 /* SPIL */
@@ -843,28 +917,33 @@ header img:nth-last-child(1) {
 /********** Tavle ***********/
 #tablet {
   background-image: url(/assets/board.svg);
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 20px;
+  padding: 0px;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
   max-width: 85vw;
+  min-height: 60vh;
   margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
 #tablet p {
   color: #000000;
-  font-size: 20px;
-  margin: 170px auto 0px;
-  max-width: 80%;
+  font-size: 13px;
+  margin: 100px 0px 0px;
+  width: 80%;
+  max-width: 300px;
+  padding: 0 10px;
 }
 #tablet p:nth-last-child(2) {
-  margin: 50px auto 0px;
+  margin: 0px auto 0px;
+  align-self: flex-start;
 }
 
 #tablet .yourducks {
@@ -872,17 +951,8 @@ header img:nth-last-child(1) {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  max-width: 500px;
-  margin: 0 auto;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  justify-items: center;
+
   text-align: center;
-  margin-top: auto;
 }
 
 #tablet .yourducks p {
@@ -890,16 +960,26 @@ header img:nth-last-child(1) {
 }
 
 #tablet .yourducks .chosenduck {
-  width: 101px;
-  height: 101px;
+  width: 60px;
+  height: 60px;
   margin: 0 10px;
   background-image: url(assets/chosen_ducks.svg);
-  background-size: 200px 100px;
+  background-size: 200% 100%;
   background-position: 0px 0;
 }
 
 .gone {
   display: none;
+}
+
+@media only screen and (min-width: 500px) {
+  #tablet {
+    min-height: 70vh;
+  }
+
+  #tablet p {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -923,6 +1003,13 @@ header img:nth-last-child(1) {
     height: 43.725vw;
     max-width: 85vw;
     max-height: 500px;
+  }
+
+  #tablet p {
+    font-size: 16px;
+    margin: 20px 0px 0px;
+    max-width: 300px;
+    padding: 0px 0px;
   }
   .water {
     height: 43.725vw;
@@ -964,23 +1051,46 @@ header img:nth-last-child(1) {
   .gameGrid {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr auto;
-    grid-template-columns: 1fr auto;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     max-width: 1400px;
     width: 90vw;
     margin: 40px auto 10px;
     grid-gap: 40px;
   }
+
+  .edge {
+    width: 100%;
+  }
+
+  #tablet .yourducks p {
+    font-size: 25px;
+  }
+
+  #tablet .yourducks .chosenduck {
+    width: 100px;
+    height: 100px;
+  }
+
   #tablet {
     margin: 100px auto;
-    padding: 20px;
+    padding: 170px 20px 70px;
     min-height: -webkit-min-content;
     min-height: -moz-min-content;
     min-height: min-content;
     height: 43.725vw;
     max-width: 85vw;
     max-height: 715.5px;
+    width: 30vw;
   }
+
+  #tablet p {
+    font-size: 22px;
+    margin: 20px 0px 0px;
+    max-width: 90%;
+    padding: 0px 0px;
+  }
+
   .water {
     height: 43.725vw;
     width: 55vw;
@@ -991,8 +1101,9 @@ header img:nth-last-child(1) {
     background-image: url(/assets/screen.svg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 95%;
+    background-size: 88%;
   }
+
   #game .ducks .duck {
     width: 75px;
     height: 75px;
@@ -1229,13 +1340,13 @@ footer {
 
 footer h2 {
   margin-bottom: 15px;
-  font-size: 10px;
+  font-size: 18px;
   font-family: "Varela Round", sans-serif;
 }
 
 footer p {
   margin-bottom: 10px;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .footerContentWidth {
@@ -1250,6 +1361,8 @@ footer p {
     display: grid;
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
+    grid-gap: 40px;
   }
 }
 
@@ -1262,17 +1375,18 @@ footer p {
 
 .tent_top {
   background-image: url(assets/tent_top.svg);
-  z-index: 6;
+  z-index: 10;
   width: 100%;
-  height: 30%;
+  height: 15%;
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: -55px 0;
+  background-position: top;
+  top: 0px;
 }
 .curtain {
   width: 100%;
-  height: 143vh;
+  height: 100vh;
   position: absolute;
 }
 
@@ -1283,11 +1397,11 @@ footer p {
 
 .curtain__panel {
   width: 50%;
-  height: 100%;
+  height: 107%;
   float: left;
   position: relative;
   z-index: 5;
-  transition: all 6s ease-out;
+  transition: all 4s ease-out;
   transform: translateX(0);
   background-repeat: no-repeat;
   background-size: cover;
@@ -1326,7 +1440,7 @@ footer p {
 .loading_ducks {
   position: absolute;
   top: 50vh;
-  left: 40vw;
+  left: calc(50vw - 150px);
   z-index: 6;
 }
 
@@ -1355,4 +1469,10 @@ footer p {
 .fade_out {
   transition: all 2s ease-out;
   opacity: 0;
+}
+
+@media only screen and (min-width: 1000px) {
+  .tent_top {
+    height: 30%;
+  }
 }

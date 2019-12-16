@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", loadSVGS);
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
-  setTimeout(hideLoading, 6000);
+  setTimeout(hideLoading, 4000);
 
   document.querySelector(".right").addEventListener("transitionend", () => {
     document.querySelector(".tent_top").classList.add("gone");
@@ -54,16 +54,48 @@ function clickedDuck() {
 function showChosenDuck() {
   if (chosen.length === 1) {
     document.querySelector(".first p").textContent = `${chosen[0]} kr`;
-    document.querySelector(".first .chosenduck").style.backgroundPosition = "100px 0";
+    document.querySelector(".first .chosenduck").style.backgroundPosition = "100% 0";
   } else if (chosen.length === 2) {
     document.querySelector(".second p").textContent = `${chosen[1]} kr`;
-    document.querySelector(".second .chosenduck").style.backgroundPosition = "100px 0";
+    document.querySelector(".second .chosenduck").style.backgroundPosition = "100% 0";
   } else if (chosen.length === 3) {
     document.querySelector(".third p").textContent = `${chosen[2]} kr`;
-    document.querySelector(".third .chosenduck").style.backgroundPosition = "100px 0";
+    document.querySelector(".third .chosenduck").style.backgroundPosition = "100% 0";
   } else if (chosen.length > 3) {
     console.log("alle ænder valgt");
   }
+
+  if (chosen.length) {
+    setTimeout(function() {
+      formOverlay();
+    }, 1000);
+  }
+}
+
+function formOverlay() {
+  document.querySelector(".inputFields").classList.remove("hide");
+
+  if (chosen.length == 1) {
+    document.querySelector(".email").classList.remove("hide");
+  } else if (chosen.length == 2) {
+    document.querySelector(".username").classList.remove("hide");
+  } else if (chosen.length == 3) {
+    document.querySelector(".regi").classList.remove("hide");
+  }
+
+  document.querySelectorAll("form").forEach(el => {
+    el.addEventListener("submit", function(event) {
+      document.querySelector(".inputFields").classList.add("hide");
+      event.preventDefault();
+      if (chosen.length == 1) {
+        document.querySelector(".email").classList.add("hide");
+      } else if (chosen.length == 2) {
+        document.querySelector(".username").classList.add("hide");
+      } else if (chosen.length == 3) {
+        document.querySelector(".regi").classList.add("hide");
+      }
+    });
+  });
 }
 
 async function loadSVGS() {
