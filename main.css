@@ -19,7 +19,7 @@
 }
 
 p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--bodyText);
 }
 h1 {
   font-family: var(--headingFont);
