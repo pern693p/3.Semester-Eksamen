@@ -21,6 +21,9 @@ function hideLoading() {
 
     document.querySelector(".play_button").addEventListener("click", startGame);
   });
+  document.querySelector(".right").addEventListener("transitionend", () => {
+    document.querySelector(".curtain").classList.add("gone");
+  });
 }
 
 function startGame() {
