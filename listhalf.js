@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", start);
-
+let users = [];
 function start() {
   get();
 }
@@ -24,30 +24,33 @@ function get() {
   })
     .then(e => e.json())
     .then(brugere => {
-      brugere.forEach(addUserToTheDOM);
+      users = brugere;
+      addUserToTheDOM();
     });
 }
 
-function addUserToTheDOM(liste) {
-  const template = document.querySelector("template").content;
-  const copy = template.cloneNode(true);
+function addUserToTheDOM() {
+  users.forEach(user => {
+    const template = document.querySelector("template").content;
+    const copy = template.cloneNode(true);
 
-  copy.querySelector("article.liste").dataset.listeid = liste._id;
+    copy.querySelector("article.liste").dataset.listeid = user._id;
 
-  copy.querySelector("h1").textContent = `Navn: ${liste.name}`;
-  copy.querySelector("h2").textContent = `Email: ${liste.email}`;
+    copy.querySelector("h1").textContent = `Navn: ${user.name}`;
+    copy.querySelector("h2").textContent = `Email: ${user.email}`;
 
-  copy.querySelector("button.btnDelete").addEventListener("click", e => {
-    const target = e.target.closest("article");
-    target.classList.add("gone");
-    deleteListe(liste._id);
+    copy.querySelector("button.btnDelete").addEventListener("click", e => {
+      const target = e.target.closest("article");
+      target.classList.add("gone");
+      deleteListe(liste._id);
+    });
+
+    copy.querySelector("button.btnEdit").addEventListener("click", e => {
+      fetchAndPopulate(liste._id);
+    });
+
+    document.querySelector("#app").prepend(copy);
   });
-
-  copy.querySelector("button.btnEdit").addEventListener("click", e => {
-    fetchAndPopulate(liste._id);
-  });
-
-  document.querySelector("#app").prepend(copy);
 }
 
 function fetchAndPopulate(id) {

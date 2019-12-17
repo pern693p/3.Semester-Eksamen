@@ -25,37 +25,43 @@ function get() {
     .then(e => e.json())
     .then(brugere => {
       users = brugere;
-      brugere.forEach(addUserToTheDOM);
+      addUserToTheDOM();
     });
 }
 
-function addUserToTheDOM(liste) {
-  const template = document.querySelector("template").content;
-  const copy = template.cloneNode(true);
+function addUserToTheDOM() {
+  sortBy();
+  document.querySelector("#app").innerHTML = "";
+  users.forEach(user => {
+    if (gender == "Alle" || gender == user.gender) {
+      const template = document.querySelector("template").content;
+      const copy = template.cloneNode(true);
 
-  copy.querySelector("article.liste").dataset.listeid = liste._id;
+      copy.querySelector("article.liste").dataset.listeid = user._id;
 
-  copy.querySelector("h1").textContent = `CPR: ${liste.cpr}`;
-  copy.querySelector("h2").textContent = `Fornavn: ${liste.name}`;
-  copy.querySelector("h3").textContent = `Efternavn: ${liste.lastname}`;
-  copy.querySelector("h4").textContent = `Brugernavn: ${liste.username}`;
-  copy.querySelector("h5").textContent = `Email: ${liste.email}`;
-  copy.querySelector("h6").textContent = `Mobil: ${liste.mobile}`;
-  copy.querySelector("h7").textContent = `Adresse: ${liste.address}`;
-  copy.querySelector("h8").textContent = `Køn: ${liste.gender}`;
-  copy.querySelector("h9").textContent = `Indestående: ${liste.estimated}`;
+      copy.querySelector("h1").textContent = `CPR: ${user.cpr}`;
+      copy.querySelector("h2").textContent = `Fornavn: ${user.name}`;
+      copy.querySelector("h3").textContent = `Efternavn: ${user.lastname}`;
+      copy.querySelector("h4").textContent = `Brugernavn: ${user.username}`;
+      copy.querySelector("h5").textContent = `Email: ${user.email}`;
+      copy.querySelector("h6").textContent = `Mobil: ${user.mobile}`;
+      copy.querySelector("h7").textContent = `Adresse: ${user.address}`;
+      copy.querySelector("h8").textContent = `Køn: ${user.gender}`;
+      copy.querySelector("h9").textContent = `Indestående: ${user.estimated}`;
 
-  copy.querySelector("button.btnDelete").addEventListener("click", e => {
-    const target = e.target.closest("article");
-    target.classList.add("gone");
-    deleteListe(liste._id);
+      copy.querySelector("button.btnDelete").addEventListener("click", e => {
+        const target = e.target.closest("article");
+        target.classList.add("gone");
+        deleteListe(user._id);
+      });
+
+      copy.querySelector("button.btnEdit").addEventListener("click", e => {
+        fetchAndPopulate(user._id);
+      });
+
+      document.querySelector("#app").prepend(copy);
+    }
   });
-
-  copy.querySelector("button.btnEdit").addEventListener("click", e => {
-    fetchAndPopulate(liste._id);
-  });
-
-  document.querySelector("#app").prepend(copy);
 }
 
 function fetchAndPopulate(id) {
@@ -76,13 +82,16 @@ function fetchAndPopulate(id) {
         .then(bruger => {
           e.querySelector("#editForm").elements.cpr.value = bruger.cpr;
           e.querySelector("#editForm").elements.name.value = bruger.name;
-          e.querySelector("#editForm").elements.lastname.value = bruger.lastname;
-          e.querySelector("#editForm").elements.username.value = bruger.username;
+          e.querySelector("#editForm").elements.lastname.value =
+            bruger.lastname;
+          e.querySelector("#editForm").elements.username.value =
+            bruger.username;
           e.querySelector("#editForm").elements.email.value = bruger.email;
           e.querySelector("#editForm").elements.mobile.value = bruger.mobile;
           e.querySelector("#editForm").elements.address.value = bruger.address;
           e.querySelector("#editForm").elements.gender.value = bruger.gender;
-          e.querySelector("#editForm").elements.estimated.value = bruger.estimated;
+          e.querySelector("#editForm").elements.estimated.value =
+            bruger.estimated;
           e.querySelector("#editForm").elements.id.value = bruger._id;
         });
 
@@ -121,17 +130,37 @@ function put(e, id) {
   })
     .then(res => res.json())
     .then(updatedListe => {
-      const parentElement = document.querySelector(`.liste[data-listeid="${updatedListe._id}"]`);
+      const parentElement = document.querySelector(
+        `.liste[data-listeid="${updatedListe._id}"]`
+      );
 
-      parentElement.querySelector("h1").textContent = `CPR: ${updatedListe.cpr}`;
-      parentElement.querySelector("h2").textContent = `Fornavn: ${updatedListe.name}`;
-      parentElement.querySelector("h3").textContent = `Efternavn: ${updatedListe.lastname}`;
-      parentElement.querySelector("h4").textContent = `Brugernavn: ${updatedListe.username}`;
-      parentElement.querySelector("h5").textContent = `Email: ${updatedListe.email}`;
-      parentElement.querySelector("h6").textContent = `Mobil: ${updatedListe.mobile}`;
-      parentElement.querySelector("h7").textContent = `Adresse: ${updatedListe.address}`;
-      parentElement.querySelector("h8").textContent = `Køn: ${updatedListe.gender}`;
-      parentElement.querySelector("h9").textContent = `Indestående: ${updatedListe.estimated}`;
+      parentElement.querySelector(
+        "h1"
+      ).textContent = `CPR: ${updatedListe.cpr}`;
+      parentElement.querySelector(
+        "h2"
+      ).textContent = `Fornavn: ${updatedListe.name}`;
+      parentElement.querySelector(
+        "h3"
+      ).textContent = `Efternavn: ${updatedListe.lastname}`;
+      parentElement.querySelector(
+        "h4"
+      ).textContent = `Brugernavn: ${updatedListe.username}`;
+      parentElement.querySelector(
+        "h5"
+      ).textContent = `Email: ${updatedListe.email}`;
+      parentElement.querySelector(
+        "h6"
+      ).textContent = `Mobil: ${updatedListe.mobile}`;
+      parentElement.querySelector(
+        "h7"
+      ).textContent = `Adresse: ${updatedListe.address}`;
+      parentElement.querySelector(
+        "h8"
+      ).textContent = `Køn: ${updatedListe.gender}`;
+      parentElement.querySelector(
+        "h9"
+      ).textContent = `Indestående: ${updatedListe.estimated}`;
     });
 }
 
@@ -146,4 +175,58 @@ function deleteListe(id) {
   })
     .then(res => res.json())
     .then(data => {});
+}
+
+// SORTERING OG FILTRERING
+
+let filterbtn = document.querySelector(".filterbtn");
+let sortbtn = document.querySelector(".sortbtn");
+
+let filtercontent = document.querySelector(".dropdown-filter");
+let sortcontent = document.querySelector(".dropdown-sort");
+
+filterbtn.addEventListener("click", dropFilter);
+sortbtn.addEventListener("click", dropSort);
+
+function dropFilter() {
+  filtercontent.classList.toggle("gone");
+}
+
+function dropSort() {
+  sortcontent.classList.toggle("gone");
+}
+
+let gender = "Alle";
+
+document.querySelectorAll(".gender").forEach(elm => {
+  elm.addEventListener("click", showGender);
+});
+
+function showGender() {
+  gender = this.value;
+
+  get();
+}
+
+let sort = "none";
+
+document.querySelectorAll(".sorting").forEach(option => {
+  option.addEventListener("click", changeSort);
+});
+
+function changeSort() {
+  sort = this.value;
+  addUserToTheDOM();
+}
+
+function sortBy() {
+  if (sort == "name") {
+    users.sort((a, b) => {
+      return b.name.localeCompare(a.name);
+    });
+  } else if (sort == "lastname") {
+    users.sort((a, b) => {
+      return b.lastname.localeCompare(a.lastname);
+    });
+  }
 }

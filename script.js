@@ -2,10 +2,10 @@ const chosen = [];
 
 window.addEventListener("DOMContentLoaded", loadSVGS);
 
-document.addEventListener("DOMContentLoaded", start);
+window.addEventListener("DOMContentLoaded", start);
 
 function start() {
-  setTimeout(hideLoading, 1000);
+  setTimeout(hideLoading, 4000);
 
   document.querySelector(".right").addEventListener("transitionend", () => {
     document.querySelector(".tent_top").classList.add("gone");
@@ -17,11 +17,15 @@ function hideLoading() {
   document.querySelector(".left").classList.add("slide_out_left");
   document.querySelector(".right").classList.add("slide_out_right");
   document.querySelector(".loading_ducks").classList.add("fade_out");
-  document.querySelector(".loading_ducks").addEventListener("transitionend", () => {
-    document.querySelector(".loading_ducks").classList.add("gone");
+  document
+    .querySelector(".loading_ducks")
+    .addEventListener("transitionend", () => {
+      document.querySelector(".loading_ducks").classList.add("gone");
 
-    document.querySelector(".play_button").addEventListener("click", startGame);
-  });
+      document
+        .querySelector(".play_button")
+        .addEventListener("click", startGame);
+    });
 }
 
 function startGame() {
@@ -35,11 +39,12 @@ function startGame() {
 }
 
 function clickedDuck() {
-  console.log("click duck");
+  document.querySelector("#ducksound").play();
+  document.querySelector("#coinsound").play();
   this.classList.add("gone");
 
   const number = Math.floor(Math.random() * 4);
-  console.log("number: " + number);
+
   if (number < 1) {
     chosen.push(25);
   } else if (number < 2) {
@@ -54,17 +59,18 @@ function clickedDuck() {
 }
 
 function showChosenDuck() {
-  console.log("show chosen duck");
-  console.log(chosen.length);
   if (chosen.length === 1) {
     document.querySelector(".first p").textContent = `${chosen[0]} kr`;
-    document.querySelector(".first .chosenduck").style.backgroundPosition = "100% 0";
+    document.querySelector(".first .chosenduck").style.backgroundPosition =
+      "100% 0";
   } else if (chosen.length === 2) {
     document.querySelector(".second p").textContent = `${chosen[1]} kr`;
-    document.querySelector(".second .chosenduck").style.backgroundPosition = "100% 0";
+    document.querySelector(".second .chosenduck").style.backgroundPosition =
+      "100% 0";
   } else if (chosen.length === 3) {
     document.querySelector(".third p").textContent = `${chosen[2]} kr`;
-    document.querySelector(".third .chosenduck").style.backgroundPosition = "100% 0";
+    document.querySelector(".third .chosenduck").style.backgroundPosition =
+      "100% 0";
   } else if (chosen.length > 3) {
     console.log("alle ænder valgt");
   }
@@ -83,48 +89,61 @@ function formOverlay() {
     document.querySelector(".email").classList.remove("hide");
     halfform.elements.email.required = true;
 
-    document.querySelector(".submitHalfEmail").addEventListener("click", async function(event) {
-      event.preventDefault();
+    document
+      .querySelector(".submitHalfEmail")
+      .addEventListener("click", async function(event) {
+        event.preventDefault();
 
-      if (await checkEmail(halfform.elements.email.value)) {
-        alert("Denne email er allerede i brug. Har du glemt din adgangskode kan du få hjælp på support@karnevalspil.dk");
-      } else {
-        document.querySelector(".inputFields").classList.add("hide");
-        document.querySelector(".email").classList.add("hide");
-        halfform.elements.email.required = false;
-      }
-    });
+        if (await checkEmail(halfform.elements.email.value)) {
+          alert(
+            "Denne email er allerede i brug. Har du glemt din adgangskode kan du få hjælp på support@karnevalspil.dk"
+          );
+        } else {
+          document.querySelector(".inputFields").classList.add("hide");
+          document.querySelector(".email").classList.add("hide");
+          halfform.elements.email.required = false;
+        }
+      });
   } else if (chosen.length === 2) {
     document.querySelector(".username").classList.remove("hide");
     halfform.elements.name.required = true;
 
-    document.querySelector(".submitHalfName").addEventListener("click", async function(event) {
-      event.preventDefault();
-      await postHalf().then(b => (currentID = b._id));
+    document
+      .querySelector(".submitHalfName")
+      .addEventListener("click", async function(event) {
+        event.preventDefault();
+        await postHalf().then(b => (currentID = b._id));
 
-      document.querySelector(".inputFields").classList.add("hide");
-      document.querySelector(".username").classList.add("hide");
-      halfform.elements.name.required = false;
-    });
+        document.querySelector(".inputFields").classList.add("hide");
+        document.querySelector(".username").classList.add("hide");
+        halfform.elements.name.required = false;
+      });
   } else if (chosen.length === 3) {
     document.querySelector(".regi").classList.remove("hide");
 
-    document.querySelector("#username").setAttribute("value", halfform.elements.name.value);
-    document.querySelector("#emailfull").setAttribute("value", halfform.elements.email.value);
+    document
+      .querySelector("#username")
+      .setAttribute("value", halfform.elements.name.value);
+    document
+      .querySelector("#emailfull")
+      .setAttribute("value", halfform.elements.email.value);
 
     let sum = calculateSum();
 
     document.querySelector(".money div").textContent = `${sum} kr.`;
 
-    document.querySelector(".mainSiteLink").addEventListener("click", async function(event) {
-      await postFull(sum);
-      event.preventDefault();
-      deleteBruger(currentID);
-    });
+    document
+      .querySelector(".mainSiteLink")
+      .addEventListener("click", async function(event) {
+        await postFull(sum);
+        event.preventDefault();
+        await deleteBruger(currentID);
+
+        window.location.href = "karnevalspil.html";
+      });
   }
 
   function deleteBruger(id) {
-    console.log(id);
     fetch(`https://eksamenhalvt-0223.restdb.io/rest/brugere/${id}`, {
       method: "delete",
       headers: {

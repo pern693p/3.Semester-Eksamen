@@ -1251,21 +1251,7 @@ form .textField input:valid {
   font-size: 15px;
 }
 
-.money select {
-  width: 100%;
-  outline: none;
-  border: 1px solid red;
-  background-color: white;
-  font-family: lato, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 14px;
-}
-
-.money select:valid {
-  border: 1px solid #0eaa00;
-}
-
+.form button,
 input[type="submit"] {
   width: 100%;
   font-size: 20px;
@@ -1528,6 +1514,36 @@ h9 {
   border-radius: 3px;
   padding: 4px;
   cursor: pointer;
+}
+
+.filter button {
+  font-size: 20px;
+  padding: 4px;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 120px;
+  margin: 2px 0;
+}
+
+.filter i {
+  float: right;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: left;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.dropdown-sort,
+.dropdown-filter {
+  display: flex;
+  flex-direction: column;
 }
 
 .admin {
