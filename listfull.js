@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", start);
-
+let users = [];
 function start() {
   get();
 }
@@ -24,6 +24,7 @@ function get() {
   })
     .then(e => e.json())
     .then(brugere => {
+      users = brugere;
       brugere.forEach(addUserToTheDOM);
     });
 }
@@ -75,16 +76,13 @@ function fetchAndPopulate(id) {
         .then(bruger => {
           e.querySelector("#editForm").elements.cpr.value = bruger.cpr;
           e.querySelector("#editForm").elements.name.value = bruger.name;
-          e.querySelector("#editForm").elements.lastname.value =
-            bruger.lastname;
-          e.querySelector("#editForm").elements.username.value =
-            bruger.username;
+          e.querySelector("#editForm").elements.lastname.value = bruger.lastname;
+          e.querySelector("#editForm").elements.username.value = bruger.username;
           e.querySelector("#editForm").elements.email.value = bruger.email;
           e.querySelector("#editForm").elements.mobile.value = bruger.mobile;
           e.querySelector("#editForm").elements.address.value = bruger.address;
           e.querySelector("#editForm").elements.gender.value = bruger.gender;
-          e.querySelector("#editForm").elements.estimated.value =
-            bruger.estimated;
+          e.querySelector("#editForm").elements.estimated.value = bruger.estimated;
           e.querySelector("#editForm").elements.id.value = bruger._id;
         });
 
@@ -123,37 +121,17 @@ function put(e, id) {
   })
     .then(res => res.json())
     .then(updatedListe => {
-      const parentElement = document.querySelector(
-        `.liste[data-listeid="${updatedListe._id}"]`
-      );
+      const parentElement = document.querySelector(`.liste[data-listeid="${updatedListe._id}"]`);
 
-      parentElement.querySelector(
-        "h1"
-      ).textContent = `CPR: ${updatedListe.cpr}`;
-      parentElement.querySelector(
-        "h2"
-      ).textContent = `Fornavn: ${updatedListe.name}`;
-      parentElement.querySelector(
-        "h3"
-      ).textContent = `Efternavn: ${updatedListe.lastname}`;
-      parentElement.querySelector(
-        "h4"
-      ).textContent = `Brugernavn: ${updatedListe.username}`;
-      parentElement.querySelector(
-        "h5"
-      ).textContent = `Email: ${updatedListe.email}`;
-      parentElement.querySelector(
-        "h6"
-      ).textContent = `Mobil: ${updatedListe.mobile}`;
-      parentElement.querySelector(
-        "h7"
-      ).textContent = `Adresse: ${updatedListe.address}`;
-      parentElement.querySelector(
-        "h8"
-      ).textContent = `Køn: ${updatedListe.gender}`;
-      parentElement.querySelector(
-        "h9"
-      ).textContent = `Indestående: ${updatedListe.estimated}`;
+      parentElement.querySelector("h1").textContent = `CPR: ${updatedListe.cpr}`;
+      parentElement.querySelector("h2").textContent = `Fornavn: ${updatedListe.name}`;
+      parentElement.querySelector("h3").textContent = `Efternavn: ${updatedListe.lastname}`;
+      parentElement.querySelector("h4").textContent = `Brugernavn: ${updatedListe.username}`;
+      parentElement.querySelector("h5").textContent = `Email: ${updatedListe.email}`;
+      parentElement.querySelector("h6").textContent = `Mobil: ${updatedListe.mobile}`;
+      parentElement.querySelector("h7").textContent = `Adresse: ${updatedListe.address}`;
+      parentElement.querySelector("h8").textContent = `Køn: ${updatedListe.gender}`;
+      parentElement.querySelector("h9").textContent = `Indestående: ${updatedListe.estimated}`;
     });
 }
 
