@@ -1,14 +1,14 @@
 const chosen = [];
+const halfform = document.querySelector("form#addHalf");
+const fullform = document.querySelector("form.regi");
+let currentID = 0;
 
 window.addEventListener("DOMContentLoaded", loadSVGS);
 
 window.addEventListener("DOMContentLoaded", start);
 
-window.onload = function() {
-  document.querySelector("#bgmusic").play();
-};
-
 function start() {
+  document.querySelector("#bgmusic").play();
   setTimeout(hideLoading, 4000);
 
   document.querySelector(".right").addEventListener("transitionend", () => {
@@ -47,7 +47,7 @@ function clickedDuck() {
   document.querySelector("#coinsound").play();
   this.classList.add("gone");
 
-  const number = Math.floor(Math.random() * 4);
+  let number = Math.floor(Math.random() * 4);
 
   if (number < 1) {
     chosen.push(25);
@@ -147,13 +147,12 @@ function formOverlay() {
       });
   }
 
-  function deleteBruger(id) {
-    fetch(`https://eksamenhalvt-0223.restdb.io/rest/brugere/${id}`, {
+  async function deleteBruger(id) {
+    await fetch(`https://eksamenhalvt-0223.restdb.io/rest/brugere/${id}`, {
       method: "delete",
       headers: {
         "content-type": "application/json; charset=utf-8",
         "x-apikey": "5de81a1d4658275ac9dc22e2",
-        // "x-apikey": "5de4cc954658275ac9dc2176",
         "cache-control": "no-cache"
       }
     })
@@ -255,7 +254,3 @@ async function loadSVGS() {
 
   document.querySelector(".edge").innerHTML = edge;
 }
-
-const halfform = document.querySelector("form#addHalf");
-const fullform = document.querySelector("form.regi");
-let currentID = 0;

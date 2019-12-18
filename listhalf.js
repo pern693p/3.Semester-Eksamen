@@ -1,8 +1,5 @@
-document.addEventListener("DOMContentLoaded", start);
+document.addEventListener("DOMContentLoaded", get);
 let users = [];
-function start() {
-  get();
-}
 
 function closeform(id) {
   document.querySelectorAll(".liste").forEach(e => {
@@ -42,7 +39,7 @@ function addUserToTheDOM() {
     copy.querySelector("button.btnDelete").addEventListener("click", e => {
       const target = e.target.closest("article");
       target.classList.add("gone");
-      deleteListe(user._id);
+      deleteUser(user._id);
     });
 
     copy.querySelector("button.btnEdit").addEventListener("click", e => {
@@ -117,7 +114,7 @@ function put(e, id) {
     });
 }
 
-function deleteListe(id) {
+function deleteUser(id) {
   fetch("https://eksamenhalvt-0223.restdb.io/rest/brugere/" + id, {
     method: "delete",
     headers: {

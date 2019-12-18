@@ -1,8 +1,5 @@
-document.addEventListener("DOMContentLoaded", start);
+document.addEventListener("DOMContentLoaded", get);
 let users = [];
-function start() {
-  get();
-}
 
 function closeform(id) {
   document.querySelectorAll(".liste").forEach(e => {
@@ -52,7 +49,7 @@ function addUserToTheDOM() {
       copy.querySelector("button.btnDelete").addEventListener("click", e => {
         const target = e.target.closest("article");
         target.classList.add("gone");
-        deleteListe(user._id);
+        deleteUser(user._id);
       });
 
       copy.querySelector("button.btnEdit").addEventListener("click", e => {
@@ -164,7 +161,7 @@ function put(e, id) {
     });
 }
 
-function deleteListe(id) {
+function deleteUser(id) {
   fetch("https://eksamen-f310.restdb.io/rest/brugere/" + id, {
     method: "delete",
     headers: {
@@ -178,6 +175,8 @@ function deleteListe(id) {
 }
 
 // SORTERING OG FILTRERING
+let gender = "Alle";
+let sort = "none";
 
 let filterbtn = document.querySelector(".filterbtn");
 let sortbtn = document.querySelector(".sortbtn");
@@ -196,8 +195,6 @@ function dropSort() {
   sortcontent.classList.toggle("gone");
 }
 
-let gender = "Alle";
-
 document.querySelectorAll(".gender").forEach(elm => {
   elm.addEventListener("click", showGender);
 });
@@ -207,8 +204,6 @@ function showGender() {
 
   get();
 }
-
-let sort = "none";
 
 document.querySelectorAll(".sorting").forEach(option => {
   option.addEventListener("click", changeSort);
