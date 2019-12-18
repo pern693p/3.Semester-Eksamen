@@ -4,6 +4,10 @@ window.addEventListener("DOMContentLoaded", loadSVGS);
 
 window.addEventListener("DOMContentLoaded", start);
 
+window.onload = function() {
+  document.querySelector("#bgmusic").play();
+};
+
 function start() {
   setTimeout(hideLoading, 4000);
 
