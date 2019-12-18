@@ -21,25 +21,19 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav.png" />
 
     <link rel="stylesheet" href="main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
   <body class="admin">
     <header>
       <div class="overskrift">
         <img src="assets/logo.svg" />
-        <h2>Liste over fuldt oprettede brugere</h2>
         <a href="adminhalf.html">Se halve abonnenter</a>
       </div>
     </header>
-
+    <div class="listHeading"><h2>Liste over fuldt oprettede brugere</h2></div>
     <div class="filter">
       <div class="filterby">
-        <button class="filterbtn">
-          FILTRER<i class="fa fa-angle-down"></i>
-        </button>
+        <button class="filterbtn">FILTRER<i class="fa fa-angle-down"></i></button>
         <div class="dropdown-filter gone">
           <button class="gender" value="Mand">Mænd</button>
           <button class="gender" value="Kvinde">Kvinder</button>
@@ -77,15 +71,9 @@
 
         <div id="form" class="gone">
           <form id="editForm" class="remove">
-            <label>CPR</label><input type="tel" name="cpr" /> <label>Navn</label
-            ><input type="text" name="name" /> <label>Efternavn</label
-            ><input type="text" name="lastname" /> <label>Brugernavn</label
-            ><input type="text" name="username" /> <label>Email</label
-            ><input type="text" name="email" /> <label>Mobil</label
-            ><input type="tel" name="mobile" /> <label>Adresse</label
-            ><input type="text" name="address" /> <label>Køn</label
-            ><input type="text" name="gender" /> <label>Indestående</label
-            ><input type="tel" name="estimated" />
+            <label>CPR</label><input type="tel" name="cpr" /> <label>Navn</label><input type="text" name="name" /> <label>Efternavn</label><input type="text" name="lastname" />
+            <label>Brugernavn</label><input type="text" name="username" /> <label>Email</label><input type="text" name="email" /> <label>Mobil</label><input type="tel" name="mobile" />
+            <label>Adresse</label><input type="text" name="address" /> <label>Køn</label><input type="text" name="gender" /> <label>Indestående</label><input type="tel" name="estimated" />
             <input type="hidden" name="id" />
             <button type="submit" name="submit" class="knap">
               Rediger

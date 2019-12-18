@@ -1476,9 +1476,10 @@ footer p {
 
 #app {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   margin: 20px auto;
-  max-width: 90%;
+  width: 90%;
+  max-width: 500px;
 }
 
 .liste h1,
@@ -1556,9 +1557,9 @@ h9 {
   grid-template-areas: "a . . b b . c";
 }
 
-.overskrift h2 {
-  align-self: center;
-  grid-area: b;
+.listHeading {
+  text-align: center;
+  margin: 20px 0 10px;
 }
 
 .overskrift a {
@@ -1604,4 +1605,22 @@ h9 {
 
 .gone {
   display: none;
+}
+
+@media only screen and (min-width: 700px) {
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 20px auto;
+    max-width: 1200px;
+  }
 }
