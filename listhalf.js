@@ -42,11 +42,11 @@ function addUserToTheDOM() {
     copy.querySelector("button.btnDelete").addEventListener("click", e => {
       const target = e.target.closest("article");
       target.classList.add("gone");
-      deleteListe(liste._id);
+      deleteListe(user._id);
     });
 
     copy.querySelector("button.btnEdit").addEventListener("click", e => {
-      fetchAndPopulate(liste._id);
+      fetchAndPopulate(user._id);
     });
 
     document.querySelector("#app").prepend(copy);
