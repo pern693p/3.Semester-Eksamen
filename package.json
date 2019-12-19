@@ -1,0 +1,26 @@
+{
+  "name": "Eksamen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "listfull.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ottesen02/3.Semester-Eksamen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ottesen02/3.Semester-Eksamen/issues"
+  },
+  "homepage": "https://github.com/Ottesen02/3.Semester-Eksamen#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}

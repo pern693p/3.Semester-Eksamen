@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: "chocolate";
-  src: url(/assets/chocolatebardemo.woff) format("woff");
+  src: url(assets/chocolatebardemo.woff) format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -27,7 +27,7 @@ h1 {
 
 body {
   overscroll-behavior: none;
-  background-image: url(/assets/tent.svg);
+  background-image: url(assets/tent.svg);
   width: 100vw;
   min-height: 100vh;
   height: min-content;
@@ -181,21 +181,21 @@ header img:nth-last-child(1) {
 
 /* SPIL */
 
-.water {
+.water { 
   height: 67.575vw;
   width: 85vw;
   max-width: 402.5px;
   max-height: 320px;
   margin: 40px auto 0;
   border-radius: 10%;
-  background-image: url(/assets/screen.svg);
+  background-image: url(assets/screen.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 95%;
 }
 
 .ripple {
-  background-image: url(/assets/screen.svg);
+  background-image: url(assets/screen.svg);
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.7;
@@ -902,7 +902,7 @@ header img:nth-last-child(1) {
 
 /********** Tavle ***********/
 #tablet {
-  background-image: url(/assets/board.svg);
+  background-image: url(assets/board.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -1004,7 +1004,7 @@ header img:nth-last-child(1) {
     max-height: 496.875px;
     margin: 40px auto 0;
     border-radius: 10%;
-    background-image: url(/assets/screen.svg);
+    background-image: url(assets/screen.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 95%;
@@ -1084,7 +1084,7 @@ header img:nth-last-child(1) {
     max-height: 715.5px;
     margin: 100px auto 0;
     border-radius: 10%;
-    background-image: url(/assets/screen.svg);
+    background-image: url(assets/screen.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 88%;
