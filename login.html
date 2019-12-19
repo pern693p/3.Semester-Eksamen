@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="login.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Baskervville|Lato|Raleway&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Baskervville|Lato|Raleway&display=swap" rel="stylesheet" />
     <title>Admin Login</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/assets/fav.png" />
@@ -35,17 +32,58 @@
       </div>
       <form action="">
         <div class="inputField">
-          <label for="usernam">Brugernavn</label>
-          <input type="text" name="username" id="username" />
+          <label for="username">Brugernavn</label>
+          <input type="text" name="username" id="username" required />
         </div>
         <div class="inputField">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required />
         </div>
-        <input type="submit" value="LOG IND" />
       </form>
+      <button disabled type="submit" class="button">
+        LOG IND
+      </button>
     </section>
 
-    <script></script>
+    <script>
+      const form = document.querySelector("form");
+      form.setAttribute("novalidate", true);
+      form.elements.username.addEventListener("focus", e => {
+        form.elements.username.classList.remove("notValid");
+      });
+      form.elements.username.addEventListener("blur", e => {
+        if (form.elements.username.checkValidity()) {
+          form.elements.username.classList.remove("notValid");
+        } else {
+          form.elements.username.classList.add("notValid");
+        }
+      });
+
+      form.elements.password.addEventListener("focus", e => {
+        form.elements.password.classList.remove("notValid");
+      });
+      form.elements.password.addEventListener("blur", e => {
+        if (form.elements.password.checkValidity()) {
+          form.elements.password.classList.remove("notValid");
+        } else {
+          form.elements.password.classList.add("notValid");
+        }
+      });
+
+      function validate() {
+        if (form.elements.username.checkValidity() && form.elements.password.checkValidity()) {
+          document.querySelector(".button").removeAttribute("disabled");
+          document.querySelector(".button").addEventListener("click", link);
+        } else {
+          //form.elements.fornavn.classList.add("notValid");
+          document.querySelector(".button").setAttribute("disabled", true);
+        }
+      }
+      form.addEventListener("change", validate);
+
+      function link() {
+        window.location = "adminfull.html";
+      }
+    </script>
   </body>
 </html>

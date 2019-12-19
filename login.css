@@ -43,7 +43,20 @@ input {
   box-shadow: 2px 4px 10px grey;
 }
 
-input[type="submit"] {
+.button {
+  margin: 5px 25px;
+  padding: 5px 25px;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: Raleway;
+  float: right;
+  border: none;
+  background-color: rgb(134, 219, 134);
+  text-decoration: none;
+  color: black;
+}
+
+.button:disabled {
   margin: 5px 25px;
   padding: 5px 25px;
   font-size: 15px;
@@ -54,4 +67,8 @@ input[type="submit"] {
   background-color: lightgray;
   text-decoration: none;
   color: black;
+}
+
+.notValid {
+  border: 1px solid red;
 }
