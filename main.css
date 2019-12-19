@@ -1091,8 +1091,8 @@ header img:nth-last-child(1) {
   }
 
   #game .ducks .duck {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -1393,7 +1393,7 @@ footer p {
 
 .curtain__panel {
   width: 50%;
-  height: 107%;
+  height: 140vh;
   float: left;
   position: relative;
   z-index: 5;

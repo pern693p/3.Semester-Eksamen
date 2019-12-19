@@ -8,7 +8,6 @@ window.addEventListener("DOMContentLoaded", loadSVGS);
 window.addEventListener("DOMContentLoaded", start);
 
 function start() {
-  document.querySelector("#bgmusic").play();
   setTimeout(hideLoading, 4000);
 
   document.querySelector(".right").addEventListener("transitionend", () => {
@@ -33,6 +32,7 @@ function hideLoading() {
 }
 
 function startGame() {
+  document.querySelector("#bgmusic").play();
   document.querySelector(".startscreen").classList.add("gone");
 
   document.querySelector(".ripple").classList.remove("gone");
@@ -82,7 +82,7 @@ function showChosenDuck() {
   if (chosen.length) {
     setTimeout(function() {
       formOverlay();
-    }, 2000);
+    }, 500);
   }
 }
 
