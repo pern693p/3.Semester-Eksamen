@@ -1,0 +1,554 @@
+
+  
+@-webkit-keyframes water {
+  0% {
+    background-size: 95%;
+  }
+  25% {
+    background-size: 93%;
+  }
+  50% {
+    background-size: 95%;
+  }
+  75% {
+    background-size: 97%;
+  }
+  100% {
+    background-size: 95%;
+  }
+}
+
+
+@-webkit-keyframes DuckLoadingAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+/* Farve animation på lamper */
+
+@-webkit-keyframes redLightChange {
+  0% {
+    fill: #ff0000;
+  }
+  25% {
+    fill: #ff0000;
+  }
+  26% {
+    fill: #fee503;
+  }
+  50% {
+    fill: #fee503;
+  }
+  51% {
+    fill: #0500ff;
+  }
+  75% {
+    fill: #0500ff;
+  }
+  76% {
+    fill: #1cc637;
+  }
+  100% {
+    fill: #1cc637;
+  }
+}
+
+@keyframes redLightChange {
+  0% {
+    fill: #ff0000;
+  }
+  25% {
+    fill: #ff0000;
+  }
+  26% {
+    fill: #fee503;
+  }
+  50% {
+    fill: #fee503;
+  }
+  51% {
+    fill: #0500ff;
+  }
+  75% {
+    fill: #0500ff;
+  }
+  76% {
+    fill: #1cc637;
+  }
+  100% {
+    fill: #1cc637;
+  }
+}
+
+@-webkit-keyframes greenLightChange {
+  0% {
+    fill: #1cc637;
+  }
+  25% {
+    fill: #1cc637;
+  }
+  26% {
+    fill: #ff0000;
+  }
+  50% {
+    fill: #ff0000;
+  }
+  51% {
+    fill: #fee503;
+  }
+  75% {
+    fill: #fee503;
+  }
+  76% {
+    fill: #0500ff;
+  }
+  100% {
+    fill: #0500ff;
+  }
+}
+
+@keyframes greenLightChange {
+  0% {
+    fill: #1cc637;
+  }
+  25% {
+    fill: #1cc637;
+  }
+  26% {
+    fill: #ff0000;
+  }
+  50% {
+    fill: #ff0000;
+  }
+  51% {
+    fill: #fee503;
+  }
+  75% {
+    fill: #fee503;
+  }
+  76% {
+    fill: #0500ff;
+  }
+  100% {
+    fill: #0500ff;
+  }
+}
+
+@-webkit-keyframes blueLightChange {
+  0% {
+    fill: #0500ff;
+  }
+  25% {
+    fill: #0500ff;
+  }
+  26% {
+    fill: #1cc637;
+  }
+  50% {
+    fill: #1cc637;
+  }
+  51% {
+    fill: #ff0000;
+  }
+  75% {
+    fill: #ff0000;
+  }
+  76% {
+    fill: #fee503;
+  }
+  100% {
+    fill: #fee503;
+  }
+}
+
+@keyframes blueLightChange {
+  0% {
+    fill: #0500ff;
+  }
+  25% {
+    fill: #0500ff;
+  }
+  26% {
+    fill: #1cc637;
+  }
+  50% {
+    fill: #1cc637;
+  }
+  51% {
+    fill: #ff0000;
+  }
+  75% {
+    fill: #ff0000;
+  }
+  76% {
+    fill: #fee503;
+  }
+  100% {
+    fill: #fee503;
+  }
+}
+
+@-webkit-keyframes yellowLightChange {
+  0% {
+    fill: #fee503;
+  }
+  25% {
+    fill: #fee503;
+  }
+  26% {
+    fill: #0500ff;
+  }
+  50% {
+    fill: #0500ff;
+  }
+  51% {
+    fill: #1cc637;
+  }
+  75% {
+    fill: #1cc637;
+  }
+  76% {
+    fill: #ff0000;
+  }
+  100% {
+    fill: #ff0000;
+  }
+}
+
+@keyframes yellowLightChange {
+  0% {
+    fill: #fee503;
+  }
+  25% {
+    fill: #fee503;
+  }
+  26% {
+    fill: #0500ff;
+  }
+  50% {
+    fill: #0500ff;
+  }
+  51% {
+    fill: #1cc637;
+  }
+  75% {
+    fill: #1cc637;
+  }
+  76% {
+    fill: #ff0000;
+  }
+  100% {
+    fill: #ff0000;
+  }
+}
+
+@-webkit-keyframes duck1 {
+  0% {
+    -webkit-transform: rotate(150deg) translateX(0) translateY(0);
+    transform: rotate(150deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) translateX(10px) translateY(14px);
+    transform: rotate(180deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(150deg) translateX(0) translateY(0);
+    transform: rotate(150deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck1 {
+  0% {
+    -webkit-transform: rotate(150deg) translateX(0) translateY(0);
+    transform: rotate(150deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) translateX(10px) translateY(14px);
+    transform: rotate(180deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(150deg) translateX(0) translateY(0);
+    transform: rotate(150deg) translateX(0) translateY(0);
+  }
+}
+
+#game .ducks .duck2 {
+  top: 18%;
+  left: 72%;
+  -webkit-transform: rotate(269deg);
+  transform: rotate(269deg);
+  -webkit-animation: duck2 14s infinite forwards ease-in-out;
+  animation: duck2 14s infinite forwards ease-in-out;
+}
+
+@-webkit-keyframes duck2 {
+  0% {
+    -webkit-transform: rotate(269deg) translateX(0) translateY(0);
+    transform: rotate(269deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(250deg) translateX(10px) translateY(14px);
+    transform: rotate(250deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(269deg) translateX(0) translateY(0);
+    transform: rotate(269deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck2 {
+  0% {
+    -webkit-transform: rotate(269deg) translateX(0) translateY(0);
+    transform: rotate(269deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(250deg) translateX(10px) translateY(14px);
+    transform: rotate(250deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(269deg) translateX(0) translateY(0);
+    transform: rotate(269deg) translateX(0) translateY(0);
+  }
+}
+
+#game .ducks .duck3 {
+  top: 40%;
+  left: 65%;
+  -webkit-transform: rotate(39deg);
+  transform: rotate(39deg);
+  -webkit-animation: duck3 9s infinite forwards ease-in-out;
+  animation: duck3 9s infinite forwards ease-in-out;
+}
+
+@-webkit-keyframes duck3 {
+  0% {
+    -webkit-transform: rotate(39deg) translateX(0) translateY(0);
+    transform: rotate(39deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(10deg) translateX(10px) translateY(14px);
+    transform: rotate(10deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(39deg) translateX(0) translateY(0);
+    transform: rotate(39deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck3 {
+  0% {
+    -webkit-transform: rotate(39deg) translateX(0) translateY(0);
+    transform: rotate(39deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(10deg) translateX(10px) translateY(14px);
+    transform: rotate(10deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(39deg) translateX(0) translateY(0);
+    transform: rotate(39deg) translateX(0) translateY(0);
+  }
+}
+
+#game .ducks .duck4 {
+  top: 60%;
+  left: 50%;
+  -webkit-transform: rotate(75deg);
+  transform: rotate(75deg);
+  -webkit-animation: duck4 13s infinite forwards ease-in-out;
+  animation: duck4 13s infinite forwards ease-in-out;
+}
+
+@-webkit-keyframes duck4 {
+  0% {
+    -webkit-transform: rotate(75deg) translateX(0) translateY(0);
+    transform: rotate(75deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(100deg) translateX(10px) translateY(14px);
+    transform: rotate(100deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(75deg) translateX(0) translateY(0);
+    transform: rotate(75deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck4 {
+  0% {
+    -webkit-transform: rotate(75deg) translateX(0) translateY(0);
+    transform: rotate(75deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(100deg) translateX(10px) translateY(14px);
+    transform: rotate(100deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(75deg) translateX(0) translateY(0);
+    transform: rotate(75deg) translateX(0) translateY(0);
+  }
+}
+
+#game .ducks .duck5 {
+  top: 25%;
+  left: 42%;
+  -webkit-transform: rotate(124deg);
+  transform: rotate(124deg);
+  -webkit-animation: duck5 8s infinite forwards ease-in-out;
+  animation: duck5 8s infinite forwards ease-in-out;
+}
+
+@-webkit-keyframes duck5 {
+  0% {
+    -webkit-transform: rotate(124deg) translateX(0) translateY(0);
+    transform: rotate(124deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(140deg) translateX(10px) translateY(14px);
+    transform: rotate(140deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(124deg) translateX(0) translateY(0);
+    transform: rotate(124deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck5 {
+  0% {
+    -webkit-transform: rotate(124deg) translateX(0) translateY(0);
+    transform: rotate(124deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(140deg) translateX(10px) translateY(14px);
+    transform: rotate(140deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(124deg) translateX(0) translateY(0);
+    transform: rotate(124deg) translateX(0) translateY(0);
+  }
+}
+
+#game .ducks .duck6 {
+  top: 45%;
+  left: 34%;
+  -webkit-transform: rotate(187deg);
+  transform: rotate(187deg);
+  -webkit-animation: duck6 10s infinite forwards ease-in-out;
+  animation: duck6 10s infinite forwards ease-in-out;
+}
+
+@-webkit-keyframes duck6 {
+  0% {
+    -webkit-transform: rotate(187deg) translateX(0) translateY(0);
+    transform: rotate(187deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(150deg) translateX(10px) translateY(14px);
+    transform: rotate(150deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(187deg) translateX(0) translateY(0);
+    transform: rotate(187deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck6 {
+  0% {
+    -webkit-transform: rotate(187deg) translateX(0) translateY(0);
+    transform: rotate(187deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(150deg) translateX(10px) translateY(14px);
+    transform: rotate(150deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(187deg) translateX(0) translateY(0);
+    transform: rotate(187deg) translateX(0) translateY(0);
+  }
+}
+
+#game .ducks .duck7 {
+  top: 63%;
+  left: 20%;
+  -webkit-transform: rotate(300deg);
+  transform: rotate(300deg);
+  -webkit-animation: duck7 15s infinite forwards ease-in-out;
+  animation: duck7 15s infinite forwards ease-in-out;
+}
+
+@-webkit-keyframes duck7 {
+  0% {
+    -webkit-transform: rotate(300deg) translateX(0) translateY(0);
+    transform: rotate(300deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(330deg) translateX(10px) translateY(14px);
+    transform: rotate(330deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(300deg) translateX(0) translateY(0);
+    transform: rotate(300deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck7 {
+  0% {
+    -webkit-transform: rotate(300deg) translateX(0) translateY(0);
+    transform: rotate(300deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(330deg) translateX(10px) translateY(14px);
+    transform: rotate(330deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(300deg) translateX(0) translateY(0);
+    transform: rotate(300deg) translateX(0) translateY(0);
+  }
+}
+
+#game .ducks .duck8 {
+  top: 24%;
+  left: 17%;
+  -webkit-transform: rotate(340deg);
+  transform: rotate(340deg);
+  -webkit-animation: duck8 7s infinite forwards ease-in-out;
+  animation: duck8 7s infinite forwards ease-in-out;
+}
+
+@-webkit-keyframes duck8 {
+  0% {
+    -webkit-transform: rotate(340deg) translateX(0) translateY(0);
+    transform: rotate(340deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(300deg) translateX(10px) translateY(14px);
+    transform: rotate(300deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(340deg) translateX(0) translateY(0);
+    transform: rotate(340deg) translateX(0) translateY(0);
+  }
+}
+
+@keyframes duck8 {
+  0% {
+    -webkit-transform: rotate(340deg) translateX(0) translateY(0);
+    transform: rotate(340deg) translateX(0) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotate(300deg) translateX(10px) translateY(14px);
+    transform: rotate(300deg) translateX(10px) translateY(14px);
+  }
+  100% {
+    -webkit-transform: rotate(340deg) translateX(0) translateY(0);
+    transform: rotate(340deg) translateX(0) translateY(0);
+  }
+}

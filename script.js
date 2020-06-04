@@ -1,5 +1,5 @@
 /* Babel laver moderne javascript om til gammel javascript så alle browsere kan køre det. */
-import "babel-polyfill";
+/* import "babel-polyfill"; */
 
 const chosen = [];
 const halfform = document.querySelector("form#addHalf");
@@ -7,35 +7,32 @@ const fullform = document.querySelector("form.regi");
 let currentID = 0;
 
 window.addEventListener("DOMContentLoaded", loadSVGS);
-
 window.addEventListener("DOMContentLoaded", start);
 
 function start() {
   setTimeout(hideLoading, 4000);
 
-  document.querySelector(".right").addEventListener("transitionend", () => {
-    document.querySelector(".tent_top").classList.add("gone");
-    document.querySelector(".curtain").classList.add("gone");
+  document.querySelector(".curtain__panel--right").addEventListener("transitionend", () => {
+    document.querySelector(".curtain__top").classList.add("hide");
+    document.querySelector(".curtain").classList.add("hide");
   });
 }
 
 function hideLoading() {
-  document.querySelector(".left").classList.add("slide_out_left");
-  document.querySelector(".right").classList.add("slide_out_right");
-  document.querySelector(".loading_ducks").classList.add("fade_out");
-  document.querySelector(".loading_ducks").addEventListener("transitionend", () => {
-    document.querySelector(".loading_ducks").classList.add("gone");
-
+  document.querySelector(".curtain__panel--left").classList.add("slide_out_left");
+  document.querySelector(".curtain__panel--right").classList.add("slide_out_right");
+  document.querySelector(".curtain__loading_ducks").classList.add("fade_out");
+  document.querySelector(".curtain__loading_ducks").addEventListener("transitionend", () => {
+    document.querySelector(".curtain__loading_ducks").classList.add("hide");
     document.querySelector(".play_button").addEventListener("click", startGame);
   });
 }
 
 function startGame() {
   document.querySelector("#bgmusic").play();
-  document.querySelector(".startscreen").classList.add("gone");
-
-  document.querySelector(".ripple").classList.remove("gone");
-  document.querySelector(".ducks").classList.remove("gone");
+  document.querySelector(".duckpond__welcome_screen").classList.add("hide");
+  document.querySelector(".duckpond__water__effect").classList.remove("hide");
+  document.querySelector(".ducks").classList.remove("hide");
   document.querySelectorAll(".duck").forEach(duck => {
     duck.addEventListener("click", clickedDuck);
   });
@@ -44,8 +41,7 @@ function startGame() {
 function clickedDuck() {
   document.querySelector("#ducksound").play();
   document.querySelector("#coinsound").play();
-  this.classList.add("gone");
-
+  this.classList.add("hide");
   let number = Math.floor(Math.random() * 4);
 
   if (number < 1) {
@@ -233,8 +229,7 @@ async function postFull(sum) {
 }
 
 async function loadSVGS() {
-  const edgeSvg = await fetch("edge.svg");
+  const edgeSvg = await fetch("assets/edge.svg");
   const edge = await edgeSvg.text();
-
-  document.querySelector(".edge").innerHTML = edge;
+  document.querySelector(".duckpond__edge").innerHTML = edge;
 }
