@@ -1,21 +1,160 @@
+
+@font-face {
+  font-family: "chocolate";
+  src: url(assets/chocolatebardemo.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 $textColor: #000000;
+$yellow: #ffda12;
+$headingFont: "Chocolate";
+$bodyText: Verdana, Geneva, Tahoma, sans-serif;
+$breakpointM: 1000px;
+$breakpointL: 1450px;
+$breakpointS: 500px;
+
+/* ------------------------------
+// Shared styles                */
 
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 body {
   overscroll-behavior: none;
+  background-image: url(assets/tent.svg);
+  width: 100vw;
+  min-height: 100vh;
+  height: min-content;
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+  background-repeat: no-repeat;
 }
 
-h1,
-h2 {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
+p {
+  font-family: $bodyText;
+}
+h1 {
+  font-family: $headingFont;
 }
 
-#tentBackground {
+.hide {
+  display: none !important;
+}
+
+.fade_out {
+  transition: all 2s ease-out;
+  opacity: 0;
+}
+
+
+/* ------------------------------
+// header                      */
+
+header {
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.534);
+ 
+  .header__logo {
+    width: auto;
+    height: 40px;
+    margin: 5px 30px;
+  }
+
+  .header__button {
+    height: 20px;
+    margin: 15px 30px;
+  }
+}
+
+
+/* ------------------------------
+// curtain                      */
+
+section.curtain {
+  width: 100%;
+  height: 100vh;
+  position: absolute; 
+
+  .curtain__panel {
+    width: 50%;
+    height: 140vh;
+    float: left;
+    position: relative;
+    z-index: 5;
+    transition: all 4s ease-out;
+    transform: translateX(0);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    &.curtain__panel--left {
+      background-image: url(assets/curtain_left.svg);
+    }
+
+    &.curtain__panel--right {
+      background-image: url(assets/curtain_right.svg);
+    }
+
+    &.slide_out_left {
+      transform: translateX(-100%);
+    }
+
+    &.slide_out_right {
+      transform: translateX(100%);
+    }
+  
+    .curtain__prize {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+/* ------------------------------
+// Loading ducks                */
+
+.curtain__loading_ducks {
+  position: absolute;
+  top: 50vh;
+  left: calc(50vw - 150px);
+  z-index: 6;
+
+  .curtain__loading_duck {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-image: url(assets/loading_duck.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    &:nth-last-child(1) {
+      animation: DuckLoadingAnimation 1s 0.1s linear infinite;
+    }
+    
+    &:nth-last-child(2) {
+      animation: DuckLoadingAnimation 1s 0.3s linear infinite;
+    }
+
+    &:nth-last-child(3) {
+      animation: DuckLoadingAnimation 1s 0.5s linear infinite;
+    }
+  }
+}
+/* ------------------------------
+// Tent                         */
+
+.tent {
   background-image: repeating-linear-gradient(90deg, red, red 50px, white 50px, white 100px);
   background-image: url(assets/tent.svg);
   width: 100vw;
@@ -26,487 +165,32 @@ h2 {
   position: relative;
   padding-bottom: 30px;
 
-  header {
+  .tent__top {
+    background-image: url(assets/tent_top.svg);
+    z-index: 10;
     width: 100%;
-    text-align: center;
-    color: $textColor;
-    padding: 40px 20px;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    height: 15%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    top: 0px;
 
-    .heading {
-      grid-area: 1 / 2 / 2 / 3;
-    }
-
-    .logo {
-      background-image: url(assets/logo-02.svg);
-      background-size: contain;
-      background-repeat: no-repeat;
-      height: 140%;
-      width: 70vw;
-      background-position: center;
-    }
-
-    .admin {
-      grid-area: 1 / 3 / 2 / 4;
-      align-self: center;
-      justify-self: flex-end;
-      text-align: center;
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-items: center;
-      font-family: sans-serif;
-      cursor: pointer;
-
-      a {
-        text-decoration: none;
-        color: black;
-      }
-
-      .icon {
-        background-image: url(assets/admin_button.svg);
-        background-size: contain;
-        height: 40px;
-        width: 40px;
-      }
+    @media only screen and (min-width: $breakpointM) {
+      height: 30%;
     }
   }
 }
 
-/********** SPIL **********/
+/* ------------------------------
+// Tent                         */
 
-.water {
-  height: 67.575vw;
-  width: 85vw;
-  max-width: 402.5px;
-  max-height: 320px;
-  margin: 40px auto 0;
-  border-radius: 10%;
-  background-image: url(assets/screen.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 95%;
-}
-
-.ripple {
-  background-image: url(assets/screen.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  opacity: 0.7;
-  height: 82%;
-  width: 85%;
-  //   max-width: 402.5px;
-  //   max-height: 320px;
-  position: absolute;
-  z-index: 0;
-  filter: url("#turbulence");
-}
-
-@keyframes water {
-  0% {
-    background-size: 95%;
-  }
-  25% {
-    background-size: 93%;
-  }
-  50% {
-    background-size: 95%;
-  }
-  75% {
-    background-size: 97%;
-  }
-  100% {
-    background-size: 95%;
-  }
-}
-
-#game {
-  width: 100%;
-  height: 100%;
+.duckpond {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  justify-items: center;
-  position: relative;
-  z-index: 2;
 
-  .edge {
-    svg {
-      height: 100%;
-      width: 100%;
-
-      circle[fill="#FF0000"] {
-        animation: redLightChange 4s linear infinite;
-      }
-      circle[fill="#FEE503"] {
-        animation: greenLightChange 4s linear infinite;
-      }
-      circle[fill="#1CC637"] {
-        animation: blueLightChange 4s linear infinite;
-      }
-      circle[fill="#0500FF"] {
-        animation: yellowLightChange 4s linear infinite;
-      }
-
-      @keyframes redLightChange {
-        0% {
-          fill: #ff0000;
-        }
-        25% {
-          fill: #ff0000;
-        }
-        26% {
-          fill: #fee503;
-        }
-        50% {
-          fill: #fee503;
-        }
-        51% {
-          fill: #0500ff;
-        }
-        75% {
-          fill: #0500ff;
-        }
-        76% {
-          fill: #1cc637;
-        }
-        100% {
-          fill: #1cc637;
-        }
-      }
-
-      @keyframes greenLightChange {
-        0% {
-          fill: #1cc637;
-        }
-        25% {
-          fill: #1cc637;
-        }
-        26% {
-          fill: #ff0000;
-        }
-        50% {
-          fill: #ff0000;
-        }
-        51% {
-          fill: #fee503;
-        }
-        75% {
-          fill: #fee503;
-        }
-        76% {
-          fill: #0500ff;
-        }
-        100% {
-          fill: #0500ff;
-        }
-      }
-
-      @keyframes blueLightChange {
-        0% {
-          fill: #0500ff;
-        }
-        25% {
-          fill: #0500ff;
-        }
-        26% {
-          fill: #1cc637;
-        }
-        50% {
-          fill: #1cc637;
-        }
-        51% {
-          fill: #ff0000;
-        }
-        75% {
-          fill: #ff0000;
-        }
-        76% {
-          fill: #fee503;
-        }
-        100% {
-          fill: #fee503;
-        }
-      }
-      @keyframes yellowLightChange {
-        0% {
-          fill: #fee503;
-        }
-        25% {
-          fill: #fee503;
-        }
-        26% {
-          fill: #0500ff;
-        }
-        50% {
-          fill: #0500ff;
-        }
-        51% {
-          fill: #1cc637;
-        }
-        75% {
-          fill: #1cc637;
-        }
-        76% {
-          fill: #ff0000;
-        }
-        100% {
-          fill: #ff0000;
-        }
-      }
-    }
-  }
-
-  .ducks {
-    width: 85%;
-    height: 80%;
-
-    .duck {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      background-size: contain;
-      background-repeat: no-repeat;
-      cursor: pointer;
-    }
-
-    .one {
-      background-image: url(assets/duck_one.svg);
-    }
-    .two {
-      background-image: url(assets/duck_two.svg);
-    }
-
-    .duck1 {
-      top: 70%;
-      left: 70%;
-      transform: rotate(150deg);
-      animation: duck1 11s infinite forwards ease-in-out;
-    }
-
-    @keyframes duck1 {
-      0% {
-        transform: rotate(150deg) translateX(0) translateY(0);
-      }
-
-      50% {
-        transform: rotate(180deg) translateX(10px) translateY(14px);
-      }
-
-      100% {
-        transform: rotate(150deg) translateX(0) translateY(0);
-      }
-    }
-
-    .duck2 {
-      top: 18%;
-      left: 72%;
-      transform: rotate(269deg);
-      animation: duck2 14s infinite forwards ease-in-out;
-    }
-
-    @keyframes duck2 {
-      0% {
-        transform: rotate(269deg) translateX(0) translateY(0);
-      }
-
-      50% {
-        transform: rotate(250deg) translateX(10px) translateY(14px);
-      }
-
-      100% {
-        transform: rotate(269deg) translateX(0) translateY(0);
-      }
-    }
-    .duck3 {
-      top: 40%;
-      left: 65%;
-      transform: rotate(39deg);
-      animation: duck3 9s infinite forwards ease-in-out;
-    }
-
-    @keyframes duck3 {
-      0% {
-        transform: rotate(39deg) translateX(0) translateY(0);
-      }
-
-      50% {
-        transform: rotate(10deg) translateX(10px) translateY(14px);
-      }
-
-      100% {
-        transform: rotate(39deg) translateX(0) translateY(0);
-      }
-    }
-
-    .duck4 {
-      top: 60%;
-      left: 50%;
-      transform: rotate(75deg);
-      animation: duck4 13s infinite forwards ease-in-out;
-    }
-
-    @keyframes duck4 {
-      0% {
-        transform: rotate(75deg) translateX(0) translateY(0);
-      }
-
-      50% {
-        transform: rotate(100deg) translateX(10px) translateY(14px);
-      }
-
-      100% {
-        transform: rotate(75deg) translateX(0) translateY(0);
-      }
-    }
-
-    .duck5 {
-      top: 25%;
-      left: 42%;
-      transform: rotate(124deg);
-      animation: duck5 8s infinite forwards ease-in-out;
-    }
-    @keyframes duck5 {
-      0% {
-        transform: rotate(124deg) translateX(0) translateY(0);
-      }
-
-      50% {
-        transform: rotate(140deg) translateX(10px) translateY(14px);
-      }
-
-      100% {
-        transform: rotate(124deg) translateX(0) translateY(0);
-      }
-    }
-
-    .duck6 {
-      top: 45%;
-      left: 34%;
-      transform: rotate(187deg);
-      animation: duck6 10s infinite forwards ease-in-out;
-    }
-    @keyframes duck6 {
-      0% {
-        transform: rotate(187deg) translateX(0) translateY(0);
-      }
-
-      50% {
-        transform: rotate(150deg) translateX(10px) translateY(14px);
-      }
-
-      100% {
-        transform: rotate(187deg) translateX(0) translateY(0);
-      }
-    }
-
-    .duck7 {
-      top: 63%;
-      left: 20%;
-      transform: rotate(300deg);
-      animation: duck7 15s infinite forwards ease-in-out;
-    }
-    @keyframes duck7 {
-      0% {
-        transform: rotate(300deg) translateX(0) translateY(0);
-      }
-
-      50% {
-        transform: rotate(330deg) translateX(10px) translateY(14px);
-      }
-
-      100% {
-        transform: rotate(300deg) translateX(0) translateY(0);
-      }
-    }
-
-    .duck8 {
-      top: 24%;
-      left: 17%;
-      transform: rotate(340deg);
-      animation: duck8 7s infinite forwards ease-in-out;
-    }
-    @keyframes duck8 {
-      0% {
-        transform: rotate(340deg) translateX(0) translateY(0);
-      }
-
-      50% {
-        transform: rotate(300deg) translateX(10px) translateY(14px);
-      }
-
-      100% {
-        transform: rotate(340deg) translateX(0) translateY(0);
-      }
-    }
-
-    .chosen {
-      display: none;
-    }
-  }
-}
-
-/********** Tavle ***********/
-
-#tablet {
-  background-image: url(assets/board.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 20px;
-  height: min-content;
-  max-width: 85vw;
-  margin: 20px auto;
-  display: grid;
-  grid-template-rows: auto auto auto 1fr;
-
-  h3 {
-    text-align: center;
-    font-size: 30px;
-    color: $textColor;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-family: hilde-sharp, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  p {
-    color: $textColor;
-    font-size: 20px;
-    margin-bottom: 10px;
-    font-family: hilde-sharp, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .yourducks {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: min-content;
-    max-width: 500px;
-    margin: 0 auto;
-    align-items: center;
-    justify-items: center;
-    text-align: center;
-    margin-top: auto;
-
-    p {
-      margin: 5px 0 0;
-    }
-
-    .chosenduck {
-      width: 50px;
-      height: 50px;
-      border: 2px solid black;
-      margin: 0 10px;
-    }
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .gameGrid {
-    display: grid;
+  @media only screen and (min-width: $breakpointM) {
+    -ms-grid-columns: 1fr auto;
     grid-template-columns: 1fr auto;
     max-width: 1100px;
     width: 90vw;
@@ -514,104 +198,439 @@ h2 {
     grid-gap: 40px;
   }
 
-  #tablet {
-    margin: 40px auto;
-    padding: 100px 3vw 40px;
-    min-height: min-content;
-    background-size: contain;
-    height: 43.725vw;
-    max-width: 85vw;
-    max-height: 500px;
+  @media screen and (min-width: $breakpointL) {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    max-width: 1400px;
+    width: 90vw;
+    margin: 40px auto 10px;
+    grid-gap: 40px;
   }
 
-  .water {
-    height: 43.725vw;
-    width: 55vw;
-    max-width: 625px;
-    max-height: 496.875px;
+  .duckpond__game {
+    width: 100%;
+    height: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .duckpond__edge {
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+    
+    svg circle[fill="#FF0000"] {
+      -webkit-animation: redLightChange 4s linear infinite;
+      animation: redLightChange 4s linear infinite;
+    }
+    
+    svg circle[fill="#FEE503"] {
+      -webkit-animation: greenLightChange 4s linear infinite;
+      animation: greenLightChange 4s linear infinite;
+    }
+    
+    svg circle[fill="#1CC637"] {
+      -webkit-animation: blueLightChange 4s linear infinite;
+      animation: blueLightChange 4s linear infinite;
+    }
+    
+    svg circle[fill="#0500FF"] {
+      -webkit-animation: yellowLightChange 4s linear infinite;
+      animation: yellowLightChange 4s linear infinite;
+    }
+    
+  }
+
+  .ducks {
+    width: 85%;
+    height: 80%;
+    
+    .duck {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      
+      &.one {
+        background-image: url(assets/duck_one.svg);
+      }
+    
+      &.two {
+        background-image: url(assets/duck_two.svg);
+      }
+
+      /* SPIL */
+
+      &.duck1 {
+        top: 70%;
+        left: 70%;
+        -webkit-transform: rotate(150deg);
+        transform: rotate(150deg);
+        -webkit-animation: duck1 11s infinite forwards ease-in-out;
+        animation: duck1 11s infinite forwards ease-in-out;
+      }
+      
+      &.duck2 {
+        top: 18%;
+        left: 72%;
+        -webkit-transform: rotate(269deg);
+        transform: rotate(269deg);
+        -webkit-animation: duck2 14s infinite forwards ease-in-out;
+        animation: duck2 14s infinite forwards ease-in-out;
+      }
+      
+      &.duck3 {
+        top: 40%;
+        left: 65%;
+        -webkit-transform: rotate(39deg);
+        transform: rotate(39deg);
+        -webkit-animation: duck3 9s infinite forwards ease-in-out;
+        animation: duck3 9s infinite forwards ease-in-out;
+      }
+      
+      &.duck4 {
+        top: 60%;
+        left: 50%;
+        -webkit-transform: rotate(75deg);
+        transform: rotate(75deg);
+        -webkit-animation: duck4 13s infinite forwards ease-in-out;
+        animation: duck4 13s infinite forwards ease-in-out;
+      }
+      
+      &.duck5 {
+        top: 25%;
+        left: 42%;
+        -webkit-transform: rotate(124deg);
+        transform: rotate(124deg);
+        -webkit-animation: duck5 8s infinite forwards ease-in-out;
+        animation: duck5 8s infinite forwards ease-in-out;
+      }
+      
+      &.duck6 {
+        top: 45%;
+        left: 34%;
+        -webkit-transform: rotate(187deg);
+        transform: rotate(187deg);
+        -webkit-animation: duck6 10s infinite forwards ease-in-out;
+        animation: duck6 10s infinite forwards ease-in-out;
+      }
+      
+      &.duck7 {
+        top: 63%;
+        left: 20%;
+        -webkit-transform: rotate(300deg);
+        transform: rotate(300deg);
+        -webkit-animation: duck7 15s infinite forwards ease-in-out;
+        animation: duck7 15s infinite forwards ease-in-out;
+      }
+      
+      &.duck8 {
+        top: 24%;
+        left: 17%;
+        -webkit-transform: rotate(340deg);
+        transform: rotate(340deg);
+        -webkit-animation: duck8 7s infinite forwards ease-in-out;
+        animation: duck8 7s infinite forwards ease-in-out;
+      }
+    }
+  }
+
+  .duckpond__water {
+    height: 67.575vw;
+    width: 85vw;
+    max-width: 402.5px;
+    max-height: 320px;
     margin: 40px auto 0;
     border-radius: 10%;
     background-image: url(assets/screen.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 95%;
+
+    @media only screen and (min-width: $breakpointM) {
+      height: 43.725vw;
+      width: 55vw;
+      max-width: 625px;
+      max-height: 496.875px;
+    }
+
+    @media only screen and (min-width: $breakpointL) {
+      height: 43.725vw;
+      width: 55vw;
+      max-width: 900px;
+      max-height: 715.5px;
+      margin: 100px auto 0;
+    }
   }
 
-  #game {
-    .ducks {
-      .duck {
-        width: 75px;
-        height: 75px;
+  .duckpond__water__effect {
+    background-image: url(assets/screen.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.7;
+    height: 82%;
+    width: 85%;
+    position: absolute;
+    z-index: 0;
+    filter: url("#turbulence");
+  }
+}
+
+
+
+.duckpond__welcome_screen {
+  height: 67.575vw;
+  width: 85vw;
+  max-width: 402.5px;
+  max-height: 320px;
+  background-color: #000000;
+  position: absolute;
+  border-radius: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+
+  @media only screen and (min-width: $breakpointS) {
+    height: 67.575vw;
+    width: 85vw;
+    max-width: 402.5px;
+    max-height: 320px;
+  }
+
+  @media only screen and (min-width: $breakpointM) {
+    height: 43.725vw;
+    width: 55vw;
+    max-width: 625px;
+    max-height: 496.875px;
+  }
+
+  @media only screen and (min-width: $breakpointL) {
+    height: 43.725vw;
+    width: 55vw;
+    max-width: 900px;
+    max-height: 715.5px;
+    border-radius: 50px;
+  }
+
+  h1, p {
+    color: white;
+    z-index: 4;
+  }
+
+  h1 {
+    color: $yellow;
+    margin: 40px 0 10px;
+    font-size: 35px;
+    @media only screen and (min-width: $breakpointS) {
+      font-size: 35px;
+    }
+    @media only screen and (min-width: $breakpointM) {
+      font-size: 45px;
+      margin: 40px 0 -20px;
+    }
+    @media only screen and (min-width: $breakpointL) {
+      font-size: 80px;
+      margin: 60px 0 -70px;
+    }
+  }
+
+  p {
+    font-size: 10px;
+    width: 75%;
+
+    @media only screen and (min-width: $breakpointS) {
+      font-size: 13px;
+    }
+    @media only screen and (min-width: $breakpointM) {
+      font-size: 16px;
+    }
+    @media only screen and (min-width: $breakpointL) {
+      font-size: 24px;
+    }
+  }
+
+  .play_button {
+    padding: 12px 25px;
+    border-radius: 5px;
+    z-index: 4;
+    background-color:$yellow;
+    margin: 20px auto 50px;
+    cursor: pointer;
+  }
+
+  .play_button p {
+    font-size: 13px;
+    margin: 0;
+    font-weight: 600;
+    color: black;
+    font-family: "Varela Round", sans-serif;
+    @media only screen and (min-width: $breakpointS) {
+      font-size: 15px;
+    }
+    @media only screen and (min-width: $breakpointM) {
+      font-size: 18px;
+    }
+    @media only screen and (min-width: $breakpointL) {
+      font-size: 30px;
+    }
+  }
+}
+
+
+/* ------------------------------
+// Footer                      */
+
+footer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.534);
+  padding: 20px;
+  color: white;
+  border-top: solid 2px black;
+
+  .footer__columns {
+    max-width: 600px;
+    margin: 0 auto;
+
+    @media only screen and (min-width: $breakpointM) {
+        max-width: 1000px;
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-end;
+        grid-gap: 40px;
+    }
+
+    .footer__column {
+      h2 {
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-family: "Varela Round", sans-serif;
+      }
+
+      p {
+        margin-bottom: 10px;
+        font-size: 13px;
       }
     }
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  #tablet {
+/* ------------------------------
+// Tablet                      */
+
+#tablet {
+  background-image: url(assets/board.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  max-width: 85vw;
+  min-height: 60vh;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  @media only screen and (min-width: $breakpointS) {
+    min-height: 70vh;
+  }
+  @media only screen and (min-width: $breakpointM) {
     margin: 40px auto;
-    padding: 100px 5vw 40px;
+    padding: 100px 3vw 40px;
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
     min-height: min-content;
     background-size: contain;
     height: 43.725vw;
     max-width: 85vw;
     max-height: 500px;
   }
-
-  #game {
-    .ducks {
-      .duck {
-        width: 85px;
-        height: 85px;
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: 1450px) {
-  .gameGrid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    max-width: 1400px;
-    width: 90vw;
-    margin: 0 auto;
-    grid-gap: 40px;
-  }
-
-  #tablet {
+  @media only screen and (min-width: $breakpointL) {
     margin: 100px auto;
-    padding: 20px;
+    padding: 170px 20px 70px;
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
     min-height: min-content;
     height: 43.725vw;
     max-width: 85vw;
     max-height: 715.5px;
+    width: 30vw;
   }
 
-  .water {
-    height: 43.725vw;
-    width: 55vw;
-    max-width: 900px;
-    max-height: 715.5px;
-    margin: 100px auto 0;
-    border-radius: 10%;
-    background-image: url(assets/screen.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 95%;
+  p {
+    color: #000000;
+    font-size: 13px;
+    margin: 100px 0px 0px;
+    width: 80%;
+    max-width: 300px;
+    padding: 0 10px;
+    &:nth-last-child(2) {
+      margin: 0px auto 0px;
+      align-self: flex-start;
+    }
+    @media only screen and (min-width: $breakpointS) {
+      font-size: 16px;
+    }
+    @media only screen and (min-width: $breakpointM) {
+      font-size: 16px;
+      margin: 20px 0px 0px;
+      max-width: 300px;
+      padding: 0px 0px;
+    }
+    @media only screen and (min-width: $breakpointL) {
+      margin: 40px auto;
+      padding: 100px 5vw 40px;
+      min-height: -webkit-min-content;
+      min-height: -moz-min-content;
+      min-height: min-content;
+      background-size: contain;
+      height: 43.725vw;
+      max-width: 85vw;
+      max-height: 500px
+    }
   }
 
-  #game {
-    .ducks {
-      .duck {
-        width: 75px;
-        height: 75px;
-      }
+  .yourducks {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    
+    p {
+      margin: 5px auto 5px;
+    }
+    
+    .chosenduck {
+      width: 60px;
+      height: 60px;
+      margin: 0 10px;
+      background-image: url(assets/chosen_ducks.svg);
+      background-size: 200% 100%;
+      background-position: 0px 0;
     }
   }
 }
 
-/******* FORM AND INPUT********/
 
+
+/******* FORM AND INPUT********/
 .inputFields {
   background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
@@ -620,14 +639,22 @@ h2 {
   top: 0;
   left: 0;
   z-index: 20;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   justify-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 form {
+  width: -webkit-min-content;
+  width: -moz-min-content;
   width: min-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
   height: min-content;
   background-color: white;
   padding: 30px 0px 0px;
@@ -635,130 +662,130 @@ form {
   border-radius: 10px;
   z-index: -3;
   overflow: hidden;
-
-  .textField {
-    position: relative;
-    margin: 0 20px 20px;
-
-    label {
-      color: #2d2d2d;
-      font-family: Baskervville, sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 15px;
-      position: absolute;
-      z-index: -1;
-      top: -2px;
-      left: 1px;
-      bottom: 0;
-      transition: 0.2s ease-in-out;
-      width: 300px;
-    }
-
-    input:focus + label {
-      top: -20px;
-      font-size: 15px;
-    }
-
-    input:valid + label {
-      top: -20px;
-      font-size: 15px;
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="number"],
-    input[type="email"] {
-      width: 60vw;
-      max-width: 500px;
-      font-size: 15px;
-      padding: 5px 3px 2px;
-      border: none;
-      background-color: rgba(255, 255, 255, 0);
-      color: #2d2d2d;
-      border-bottom: 1px solid red;
-      font-family: Raleway, sans-serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    input:valid {
-      border-bottom: 2px solid rgb(14, 170, 0);
-    }
-  }
 }
 
+form .textField {
+  position: relative;
+  margin: 0 20px 20px;
+}
+
+form .textField label {
+  color: #2d2d2d;
+  font-family: Baskervville, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  position: absolute;
+  z-index: -1;
+  top: -2px;
+  left: 1px;
+  bottom: 0;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  width: 300px;
+}
+
+form .textField input:focus + label {
+  top: -20px;
+  font-size: 15px;
+}
+
+form .textField input:valid + label {
+  top: -20px;
+  font-size: 15px;
+}
+
+form .textField input[type="text"],
+form .textField input[type="tel"],
+form .textField input[type="number"],
+form .textField input[type="email"] {
+  width: 60vw;
+  max-width: 500px;
+  font-size: 15px;
+  padding: 5px 3px 2px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: #2d2d2d;
+  border-bottom: 1px solid red;
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+form .textField input:valid {
+  border-bottom: 2px solid #0eaa00;
+}
+
+#addHalf {
+  border: none;
+}
 .sex {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr auto auto;
   grid-template-columns: 1fr auto auto;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin: 0 20px 30px;
+}
 
-  p {
-    color: #2d2d2d;
-    font-family: Baskervville, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 15px;
-  }
+.sex p {
+  color: #2d2d2d;
+  font-family: Baskervville, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+}
 
-  input[type="radio"] + label {
-    color: #2d2d2d;
-    border: 1px solid red;
-    padding: 5px 10px;
-    transition: 0.3s;
-    font-family: Baskervville, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 15px;
-    cursor: pointer;
-  }
+.sex input[type="radio"] + label {
+  color: #2d2d2d;
+  border: 1px solid red;
+  padding: 5px 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-family: Baskervville, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  cursor: pointer;
+}
 
-  .man + label {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-  .woman + label {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
+.sex .man + label {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
 
-  input[type="radio"]:checked + label {
-    border: 1px solid rgb(14, 170, 0);
-    color: #2d2d2d;
-  }
+.sex .woman + label {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.sex input[type="radio"]:checked + label {
+  border: 1px solid #0eaa00;
+  color: #2d2d2d;
 }
 
 .money {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr auto;
   grid-template-columns: 1fr auto;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin: 0 20px 20px;
-
-  p {
-    color: #2d2d2d;
-    font-family: Baskervville, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 15px;
-  }
-
-  select {
-    width: 100%;
-    outline: none;
-    border: 1px solid red;
-    background-color: white;
-    font-family: lato, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 14px;
-  }
-
-  select:valid {
-    border: 1px solid rgb(14, 170, 0);
-  }
 }
 
+.money p {
+  color: #2d2d2d;
+  font-family: Baskervville, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+}
+
+.form button,
 input[type="submit"] {
   width: 100%;
   font-size: 20px;
@@ -769,6 +796,7 @@ input[type="submit"] {
   font-family: Raleway, sans-serif;
   font-weight: 900;
   font-style: normal;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -776,134 +804,210 @@ input[type="submit"] {
 input[type="submit"]:hover {
   letter-spacing: 3px;
 }
+.mainSiteLink {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+  padding: 15px 0px;
+  border: 1px solid red;
+  background-color: red;
+  color: white;
+  font-family: Raleway, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.mainSiteLink:hover {
+  letter-spacing: 3px;
+}
 
 @media only screen and (min-width: 700px) {
-  form {
-    .textField {
-      position: relative;
-      margin: 0 20px 25px;
-
-      label {
-        font-size: 18px;
-        top: 0px;
-      }
-
-      input[type="text"],
-      input[type="tel"],
-      input[type="number"],
-      input[type="email"] {
-        font-size: 16px;
-      }
-    }
+  form .textField {
+    position: relative;
+    margin: 0 20px 25px;
   }
-
-  .sex {
-    p {
-      font-size: 18px;
-    }
-
-    input[type="radio"] + label {
-      padding: 5px 13px;
-      font-size: 16px;
-    }
+  form .textField label {
+    font-size: 18px;
+    top: 0px;
   }
-
-  .money {
-    p {
-      font-size: 18px;
-    }
-
-    select {
-      font-size: 16px;
-    }
+  form .textField input[type="text"],
+  form .textField input[type="tel"],
+  form .textField input[type="number"],
+  form .textField input[type="email"] {
+    font-size: 16px;
+  }
+  .sex p {
+    font-size: 18px;
+  }
+  .sex input[type="radio"] + label {
+    padding: 5px 13px;
+    font-size: 16px;
+  }
+  .money p {
+    font-size: 18px;
+  }
+  .money select {
+    font-size: 16px;
   }
 }
 
-/*********** FOOTER *********/
 
-footer {
-  height: min-content;
-  width: 100vw;
-  background-color: black;
-  padding: 20px;
-  color: #eeeeee;
 
-  h2 {
-    text-align: center;
-    margin-bottom: 15px;
-  }
 
-  h4 {
-    text-align: center;
-    margin: 20px 0 10px;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  }
-  p {
-    margin-bottom: 10px;
-    font-family: sans-serif;
-    text-align: center;
-  }
+/* LISTE */
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 500px;
 }
 
-.footerContentWidth {
-  max-width: 600px;
-  margin: 0 auto;
+.liste h1,
+.liste h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+h8,
+h9 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 100;
 }
 
-@media only screen and (min-width: 1000px) {
-  .footerContentWidth {
-    max-width: 1000px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+.liste {
+  margin: 20px;
+  border: none;
+  padding: 10px;
+  background-color: rgb(187, 187, 187);
+  border-radius: 5px;
 }
 
-/******** Generel Classes *********/
+.user {
+  display: flex;
+  flex-direction: column;
+}
 
-.hide {
+.liste button {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.filter button {
+  font-size: 20px;
+  padding: 4px;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 120px;
+  margin: 2px 0;
+}
+
+.filter i {
+  float: right;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: left;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.dropdown-sort,
+.dropdown-filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin {
+  background-image: none;
+}
+
+.overskrift {
+  display: grid;
+  width: 100%;
+  grid-template-areas: "a . . b b . c";
+}
+
+.listHeading {
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.overskrift a {
+  grid-area: c;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: auto 6px;
+  cursor: pointer;
+  color: black;
+  background-color: rgb(207, 207, 207);
+  text-decoration: none;
+  font-family: "Varela Round", sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+#editForm {
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+#editForm label {
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
+}
+
+#editForm input {
+  width: 100%;
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+#editForm div {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.gone {
   display: none;
 }
 
-section_1 {
-  h1 {
-    color: black;
-    text-align: center;
-    border: solid;
-    width: 10vw;
-    margin: auto;
-  }
-  h2 {
-    color: black;
-    font-size: 3rem;
-    border: solid;
-    width: 30vw;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 2vw;
+@media only screen and (min-width: 700px) {
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px auto;
+    max-width: 800px;
   }
 }
 
-#add {
-  button {
-    width: 5vw;
-    position: absolute;
-    right: 2%;
+@media only screen and (min-width: 1100px) {
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 20px auto;
+    max-width: 1200px;
   }
-
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  .remove {
-    display: none;
-  }
-
-  .notValid {
-    background: red;
-  }
-}
-
-section_1 {
-  display: grid;
-  justify-content: center;
 }
