@@ -13,7 +13,7 @@ function start() {
   setTimeout(hideLoading, 4000);
 
   document.querySelector(".curtain__panel--right").addEventListener("transitionend", () => {
-    document.querySelector(".tent__top").classList.add("hide");
+    document.querySelector(".curtain__top").classList.add("hide");
     document.querySelector(".curtain").classList.add("hide");
   });
 }
