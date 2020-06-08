@@ -2,7 +2,7 @@
 /* import "babel-polyfill"; */
 
 const chosen = [];
-const halfform = document.querySelector("form#addHalf");
+const halfform = document.querySelector("form#add_email");
 const fullform = document.querySelector("form.regi");
 let currentID = 0;
 
@@ -31,7 +31,6 @@ function hideLoading() {
 function startGame() {
   document.querySelector("#bgmusic").play();
   document.querySelector(".duckpond__welcome_screen").classList.add("hide");
-  document.querySelector(".duckpond__water__effect").classList.remove("hide");
   document.querySelector(".ducks").classList.remove("hide");
   document.querySelectorAll(".duck").forEach(duck => {
     duck.addEventListener("click", clickedDuck);
@@ -79,13 +78,13 @@ function showChosenDuck() {
 }
 
 function formOverlay() {
-  document.querySelector(".inputFields").classList.remove("hide");
+  document.querySelector(".form_overlay").classList.remove("hide");
 
   if (chosen.length === 1) {
     document.querySelector(".email").classList.remove("hide");
     halfform.elements.email.required = true;
 
-    document.querySelector(".submitHalfEmail").addEventListener("click", async function(event) {
+    document.querySelector("#add_email button[type=submit]").addEventListener("click", async function(event) {
       event.preventDefault();
 
       if (await checkEmail(halfform.elements.email.value)) {

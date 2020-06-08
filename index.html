@@ -46,59 +46,54 @@
 
     <section class="tent">
       <div class="duckpond">
-        <div class="duckpond__water">
+        <div class="duckpond__water"></div>
+        <div id="duckpond__game">
           <div class="duckpond__welcome_screen">
             <h1>Andedammen</h1>
             <p>Som en tak for at du har valgt at besøge vores side, giver vi dig nu muligheden for at vinde 300 kr. til vores spillemaskiner! Det eneste du skal gøre er at vælge 3 ænder i vores andespil og se gevinsten for din fangst, nemt ikke?</p>
-            <div class="play_button"><p>SPIL!</p></div>
+            <button class="play_button button">SPIL!</button>
           </div>
-          <div id="duckpond__game">
-            <div class="duckpond__edge"></div>
-            <div class="duckpond__water__effect hide"></div>
-            <div class="ducks hide">
-              <div class="duck one duck1"></div>
-              <div class="duck two duck2"></div>
-              <div class="duck one duck3"></div>
-              <div class="duck two duck4"></div>
-              <div class="duck one duck5"></div>
-              <div class="duck two duck6"></div>
-              <div class="duck one duck7"></div>
-              <div class="duck two duck8"></div>
-            </div>
+          <div class="ducks hide">
+            <div class="duck one duck1"></div>
+            <div class="duck two duck2"></div>
+            <div class="duck one duck3"></div>
+            <div class="duck two duck4"></div>
+            <div class="duck one duck5"></div>
+            <div class="duck two duck6"></div>
+            <div class="duck one duck7"></div>
+            <div class="duck two duck8"></div>
           </div>
         </div>
-        <div id="scoreboard">
-          <p>Tryk på en and og se hvor mange penge den er værd!</p>
-          <p>Du kan vælge op til tre ænder som er mellem 25kr, 50kr, 75kr eller 100kr værd.</p>
-          <div class="yourducks">
-            <div class="first points">
-              <div class="chosenduck"></div>
-              <p>0kr</p>
-            </div>
-            <div class="second points">
-              <div class="chosenduck"></div>
-              <p>0kr</p>
-            </div>
-            <div class="third points">
-              <div class="chosenduck"></div>
-              <p>0kr</p>
-            </div>
+        <div class="duckpond__edge"></div>
+      </div>
+      <div id="duckpond__scoreboard">
+        <p>Tryk på en and og se hvor mange penge den er værd!</p>
+        <p>Du kan vælge op til tre ænder som er mellem 25kr, 50kr, 75kr eller 100kr værd.</p>
+        <div class="yourducks">
+          <div class="first points">
+            <div class="chosenduck"></div>
+            <p>0kr</p>
+          </div>
+          <div class="second points">
+            <div class="chosenduck"></div>
+            <p>0kr</p>
+          </div>
+          <div class="third points">
+            <div class="chosenduck"></div>
+            <p>0kr</p>
           </div>
         </div>
       </div>
     </section>
     
-    <section class="inputFields hide">
+    <section class="form_overlay hide">
       
-      <form id="addHalf">
-        <div class="form email hide">
-          <div class="textField">
-            <input type="email" name="email" />
-            <label for="email">Fortæl os din Email</label>
-          </div>
-          <button class="submitHalfEmail">Fisk videre!</button>
+      <form id="add_email">
+        <div class="input email hide">
+          <input type="email" name="email" placeholder="Fortæl os din email"/>
+          <button class="button" type="submit">Fang en and mere!</button>
         </div>
-
+        
         <div class="form username hide">
           <div class="textField">
             <input type="text" name="name" />

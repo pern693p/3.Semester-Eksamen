@@ -40,12 +40,28 @@ h1 {
   transition: all 2s ease-out;
   opacity: 0; }
 
+.button {
+  padding: 12px 25px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffda12;
+  margin: 20px auto 50px; }
+  @media only screen and (min-width: 500px) {
+    .button {
+      font-size: 15px; } }
+  @media only screen and (min-width: 1000px) {
+    .button {
+      font-size: 18px; } }
+  @media only screen and (min-width: 1450px) {
+    .button {
+      font-size: 30px; } }
+
 /* ------------------------------
-// header¨                      */
+// Header¨                      */
 header {
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid black;
   display: flex;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.534);
@@ -61,20 +77,21 @@ header {
     margin: 15px 30px; }
 
 /* ------------------------------
-// curtain                      */
+// Curtain                      */
 section.curtain {
   width: 100%;
   height: 100vh;
   position: absolute; }
   section.curtain .curtain__top {
     background-image: url(assets/tent_top.svg);
-    z-index: 10;
+    z-index: 4;
     width: 100%;
     height: 15%;
+    overflow: visible;
     position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: center top;
     top: 0px; }
     @media only screen and (min-width: 1000px) {
       section.curtain .curtain__top {
@@ -84,7 +101,7 @@ section.curtain {
     height: 140vh;
     float: left;
     position: relative;
-    z-index: 5;
+    z-index: 3;
     transition: all 4s ease-out;
     transform: translateX(0);
     background-repeat: no-repeat;
@@ -104,7 +121,7 @@ section.curtain {
   position: absolute;
   top: 50vh;
   left: calc(50vw - 150px);
-  z-index: 6; }
+  z-index: 4; }
   .curtain__loading_ducks .curtain__loading_duck {
     display: inline-block;
     width: 100px;
@@ -120,68 +137,67 @@ section.curtain {
       animation: DuckLoadingAnimation 1s 0.5s linear infinite; }
 
 /* ------------------------------
-// Tent                         */
+// Tent                         
+// Element that has game and start sceen */
 .tent {
   background-image: repeating-linear-gradient(90deg, red, red 50px, white 50px, white 100px);
   background-image: url(assets/tent.svg);
   width: 100vw;
-  min-height: 100vh;
-  height: min-content;
   background-size: cover;
   background-position: center top;
-  position: relative;
-  padding-bottom: 30px; }
+  padding: 100px 0 30px 0;
+  display: grid;
+  align-items: top center;
+  -ms-grid-columns: 1fr auto;
+  grid-template-columns: 1fr auto;
+  margin: 0 auto;
+  grid-gap: 40px; }
+  @media only screen and (max-width: 1000px) {
+    .tent {
+      display: block;
+      -ms-grid-columns: none;
+      grid-template-columns: none; } }
 
 /* ------------------------------
 // Duckpond game                 */
 .duckpond {
-  display: -ms-grid;
-  display: grid;
-  padding-top: 150px; }
-  @media only screen and (min-width: 1000px) {
-    .duckpond {
-      -ms-grid-columns: 1fr auto;
-      grid-template-columns: 1fr auto;
-      max-width: 1100px;
-      width: 90vw;
-      margin: 0 auto;
-      grid-gap: 40px; } }
-  @media screen and (min-width: 1450px) {
-    .duckpond {
-      -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 2fr;
-      max-width: 1400px;
-      width: 90vw;
-      margin: 40px auto 10px;
-      grid-gap: 40px; } }
+  position: relative;
+  margin: 0 auto;
+  /* set all child elements to be relative to duckpond wrapper */ }
+  .duckpond .duckpond__edge,
+  .duckpond .duckpond__water,
+  .duckpond #duckpond__game,
+  .duckpond .duckpond__welcome_screen {
+    position: absolute;
+    top: 0;
+    left: 0; }
   .duckpond #duckpond__game {
     width: 100%;
-    height: 100%;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    justify-items: center;
-    position: relative;
-    z-index: 2; }
-  .duckpond .duckpond__edge svg {
-    height: 100%;
-    width: 100%; }
-  .duckpond .duckpond__edge svg circle[fill="#FF0000"] {
-    -webkit-animation: redLightChange 4s linear infinite;
-    animation: redLightChange 4s linear infinite; }
-  .duckpond .duckpond__edge svg circle[fill="#FEE503"] {
-    -webkit-animation: greenLightChange 4s linear infinite;
-    animation: greenLightChange 4s linear infinite; }
-  .duckpond .duckpond__edge svg circle[fill="#1CC637"] {
-    -webkit-animation: blueLightChange 4s linear infinite;
-    animation: blueLightChange 4s linear infinite; }
-  .duckpond .duckpond__edge svg circle[fill="#0500FF"] {
-    -webkit-animation: yellowLightChange 4s linear infinite;
-    animation: yellowLightChange 4s linear infinite; }
+    height: 100%; }
+  .duckpond .duckpond__water {
+    border-radius: 10%;
+    background-image: url(assets/screen.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%; }
+  .duckpond .duckpond__edge {
+    /* remove click events from edge element (Highest zindex) */
+    pointer-events: none; }
+    .duckpond .duckpond__edge svg {
+      height: 100%;
+      width: 100%; }
+      .duckpond .duckpond__edge svg circle[fill="#FF0000"] {
+        -webkit-animation: redLightChange 4s linear infinite;
+        animation: redLightChange 4s linear infinite; }
+      .duckpond .duckpond__edge svg circle[fill="#FEE503"] {
+        -webkit-animation: greenLightChange 4s linear infinite;
+        animation: greenLightChange 4s linear infinite; }
+      .duckpond .duckpond__edge svg circle[fill="#1CC637"] {
+        -webkit-animation: blueLightChange 4s linear infinite;
+        animation: blueLightChange 4s linear infinite; }
+      .duckpond .duckpond__edge svg circle[fill="#0500FF"] {
+        -webkit-animation: yellowLightChange 4s linear infinite;
+        animation: yellowLightChange 4s linear infinite; }
   .duckpond .ducks {
     width: 85%;
     height: 80%; }
@@ -253,73 +269,50 @@ section.curtain {
         transform: rotate(340deg);
         -webkit-animation: duck8 7s infinite forwards ease-in-out;
         animation: duck8 7s infinite forwards ease-in-out; }
-  .duckpond .duckpond__water {
+
+/* ------------------------------
+// Responsive Duckpond           */
+@media only screen and (min-width: 500px) {
+  .duckpond,
+  .duckpond__edge,
+  .duckpond__welcome_screen,
+  .duckpond__water {
     height: 67.575vw;
     width: 85vw;
     max-width: 402.5px;
-    max-height: 320px;
-    margin: 40px auto 0;
-    border-radius: 10%;
-    background-image: url(assets/screen.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 95%; }
-    @media only screen and (min-width: 1000px) {
-      .duckpond .duckpond__water {
-        height: 43.725vw;
-        width: 55vw;
-        max-width: 625px;
-        max-height: 496.875px; } }
-    @media only screen and (min-width: 1450px) {
-      .duckpond .duckpond__water {
-        height: 43.725vw;
-        width: 55vw;
-        max-width: 900px;
-        max-height: 715.5px;
-        margin: 100px auto 0; } }
-  .duckpond .duckpond__water__effect {
-    background-image: url(assets/screen.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.7;
-    height: 82%;
-    width: 85%;
-    position: absolute; }
+    max-height: 320px; } }
 
+@media only screen and (min-width: 1000px) {
+  .duckpond,
+  .duckpond__edge,
+  .duckpond__welcome_screen,
+  .duckpond__water {
+    height: 43.725vw;
+    width: 55vw;
+    max-width: 625px;
+    max-height: 496.875px; } }
+
+@media only screen and (min-width: 1450px) {
+  .duckpond,
+  .duckpond__edge,
+  .duckpond__welcome_screen,
+  .duckpond__water {
+    height: 43.725vw;
+    width: 55vw;
+    max-width: 900px;
+    max-height: 715.5px;
+    border-radius: 50px; } }
+
+/* ------------------------------
+// Duckpond welcome screens     */
 .duckpond__welcome_screen {
-  height: 67.575vw;
-  width: 85vw;
-  max-width: 402.5px;
-  max-height: 320px;
   background-color: #000000;
-  position: absolute;
   border-radius: 40px;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  justify-items: center; }
-  @media only screen and (min-width: 500px) {
-    .duckpond__welcome_screen {
-      height: 67.575vw;
-      width: 85vw;
-      max-width: 402.5px;
-      max-height: 320px; } }
-  @media only screen and (min-width: 1000px) {
-    .duckpond__welcome_screen {
-      height: 43.725vw;
-      width: 55vw;
-      max-width: 625px;
-      max-height: 496.875px; } }
-  @media only screen and (min-width: 1450px) {
-    .duckpond__welcome_screen {
-      height: 43.725vw;
-      width: 55vw;
-      max-width: 900px;
-      max-height: 715.5px;
-      border-radius: 50px; } }
-  .duckpond__welcome_screen h1, .duckpond__welcome_screen p {
-    color: white;
-    z-index: 4; }
+  justify-items: center;
+  color: white; }
   .duckpond__welcome_screen h1 {
     color: #ffda12;
     margin: 40px 0 10px;
@@ -347,28 +340,62 @@ section.curtain {
     @media only screen and (min-width: 1450px) {
       .duckpond__welcome_screen p {
         font-size: 24px; } }
-  .duckpond__welcome_screen .play_button {
-    padding: 12px 25px;
-    border-radius: 5px;
-    z-index: 4;
-    background-color: #ffda12;
-    margin: 20px auto 50px;
-    cursor: pointer; }
-  .duckpond__welcome_screen .play_button p {
+
+/* ------------------------------
+// Scoreboard                   */
+#duckpond__scoreboard {
+  background-image: url(assets/board.svg);
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding: 100px 3vw 40px;
+  height: min-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  max-width: 85vw;
+  min-height: 60vh;
+  margin: 0 auto; }
+  @media only screen and (min-width: 500px) {
+    #duckpond__scoreboard {
+      min-height: 70vh; } }
+  @media only screen and (min-width: 1000px) {
+    #duckpond__scoreboard {
+      height: 43.725vw;
+      max-width: 85vw;
+      max-height: 500px; } }
+  @media only screen and (min-width: 1450px) {
+    #duckpond__scoreboard {
+      height: 43.725vw;
+      max-width: 85vw;
+      max-height: 715.5px;
+      width: 30vw; } }
+  #duckpond__scoreboard p {
     font-size: 13px;
-    margin: 0;
-    font-weight: 600;
-    color: black;
-    font-family: "Varela Round", sans-serif; }
+    width: 80%;
+    max-width: 300px; }
     @media only screen and (min-width: 500px) {
-      .duckpond__welcome_screen .play_button p {
-        font-size: 15px; } }
+      #duckpond__scoreboard p {
+        font-size: 16px; } }
     @media only screen and (min-width: 1000px) {
-      .duckpond__welcome_screen .play_button p {
-        font-size: 18px; } }
-    @media only screen and (min-width: 1450px) {
-      .duckpond__welcome_screen .play_button p {
-        font-size: 30px; } }
+      #duckpond__scoreboard p {
+        font-size: 16px; } }
+  #duckpond__scoreboard .yourducks {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center; }
+    #duckpond__scoreboard .yourducks p {
+      margin: 5px auto 5px; }
+    #duckpond__scoreboard .yourducks .chosenduck {
+      width: 60px;
+      height: 60px;
+      margin: 0 10px;
+      background-image: url(assets/chosen_ducks.svg);
+      background-size: 200% 100%;
+      background-position: 0px 0; }
 
 /* ------------------------------
 // Footer                      */
@@ -376,8 +403,7 @@ footer {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.534);
   padding: 20px;
-  color: white;
-  border-top: solid 2px black; }
+  color: white; }
   footer .footer__columns {
     max-width: 600px;
     margin: 0 auto; }
@@ -398,75 +424,15 @@ footer {
       margin-bottom: 10px;
       font-size: 13px; }
 
-/* ------------------------------
-// Tablet                      */
-#scoreboard {
-  background-image: url(assets/board.svg);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 24vh 0 120px 0px;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
-  max-width: 85vw;
-  min-height: 60vh;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  align-items: center; }
-  @media only screen and (min-width: 500px) {
-    #scoreboard {
-      min-height: 70vh; } }
-  @media only screen and (min-width: 1000px) {
-    #scoreboard {
-      height: 43.725vw;
-      max-width: 85vw;
-      max-height: 500px; } }
-  @media only screen and (min-width: 1450px) {
-    #scoreboard {
-      height: 43.725vw;
-      max-width: 85vw;
-      max-height: 715.5px;
-      width: 30vw; } }
-  #scoreboard p {
-    color: #000000;
-    font-size: 13px;
-    width: 80%;
-    max-width: 300px;
-    margin-bottom: 1em; }
-    @media only screen and (min-width: 500px) {
-      #scoreboard p {
-        font-size: 16px; } }
-    @media only screen and (min-width: 1000px) {
-      #scoreboard p {
-        font-size: 16px; } }
-  #scoreboard .yourducks {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: center; }
-    #scoreboard .yourducks p {
-      margin: 5px auto 5px; }
-    #scoreboard .yourducks .chosenduck {
-      width: 60px;
-      height: 60px;
-      margin: 0 10px;
-      background-image: url(assets/chosen_ducks.svg);
-      background-size: 200% 100%;
-      background-position: 0px 0; }
-
 /******* FORM AND INPUT********/
-.inputFields {
+.form_overlay {
   background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 20;
+  z-index: 4;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -475,145 +441,37 @@ footer {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
-
-form {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
-  background-color: white;
-  padding: 30px 0px 0px;
-  border: red solid 2px;
-  border-radius: 10px;
-  z-index: -3;
-  overflow: hidden; }
-
-form .textField {
-  position: relative;
-  margin: 0 20px 20px; }
-
-form .textField label {
-  color: #2d2d2d;
-  font-family: Baskervville, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 15px;
-  position: absolute;
-  z-index: -1;
-  top: -2px;
-  left: 1px;
-  bottom: 0;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  width: 300px; }
-
-form .textField input:focus + label {
-  top: -20px;
-  font-size: 15px; }
-
-form .textField input:valid + label {
-  top: -20px;
-  font-size: 15px; }
-
-form .textField input[type="text"],
-form .textField input[type="tel"],
-form .textField input[type="number"],
-form .textField input[type="email"] {
-  width: 60vw;
-  max-width: 500px;
-  font-size: 15px;
-  padding: 5px 3px 2px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0);
-  color: #2d2d2d;
-  border-bottom: 1px solid red;
-  font-family: Raleway, sans-serif;
-  font-weight: 400;
-  font-style: normal; }
-
-form .textField input:valid {
-  border-bottom: 2px solid #0eaa00; }
-
-#addHalf {
-  border: none; }
-
-.sex {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr auto auto;
-  grid-template-columns: 1fr auto auto;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin: 0 20px 30px; }
-
-.sex p {
-  color: #2d2d2d;
-  font-family: Baskervville, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 15px; }
-
-.sex input[type="radio"] + label {
-  color: #2d2d2d;
-  border: 1px solid red;
-  padding: 5px 10px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  font-family: Baskervville, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 15px;
-  cursor: pointer; }
-
-.sex .man + label {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px; }
-
-.sex .woman + label {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px; }
-
-.sex input[type="radio"]:checked + label {
-  border: 1px solid #0eaa00;
-  color: #2d2d2d; }
-
-.money {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr auto;
-  grid-template-columns: 1fr auto;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin: 0 20px 20px; }
-
-.money p {
-  color: #2d2d2d;
-  font-family: Baskervville, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 15px; }
-
-.form button,
-input[type="submit"] {
-  width: 100%;
-  font-size: 20px;
-  padding: 15px 0px;
-  border: 1px solid red;
-  background-color: red;
-  color: white;
-  font-family: Raleway, sans-serif;
-  font-weight: 900;
-  font-style: normal;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  cursor: pointer; }
-
-input[type="submit"]:hover {
-  letter-spacing: 3px; }
+  .form_overlay form {
+    width: 60vw;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px; }
+    .form_overlay form input {
+      width: 100%;
+      font-size: 16px;
+      padding: 5px 3px 2px;
+      border: none;
+      color: #2d2d2d;
+      border-bottom: 1px solid red;
+      font-family: Raleway, sans-serif;
+      font-weight: 400;
+      font-style: normal; }
+      .form_overlay form input:valid {
+        border-bottom: 2px solid #0eaa00; }
+    .form_overlay form button[type="submit"],
+    .form_overlay form input[type="submit"] {
+      margin-top: 20px;
+      width: 100%;
+      font-size: 20px;
+      padding: 15px 0px;
+      border: none;
+      background-color: #ffda12;
+      color: black;
+      font-family: Raleway, sans-serif;
+      font-weight: 900; }
+    .form_overlay form input[type="submit"]:hover {
+      letter-spacing: 3px; }
 
 .mainSiteLink {
   display: block;
@@ -634,28 +492,6 @@ input[type="submit"]:hover {
 
 .mainSiteLink:hover {
   letter-spacing: 3px; }
-
-@media only screen and (min-width: 700px) {
-  form .textField {
-    position: relative;
-    margin: 0 20px 25px; }
-  form .textField label {
-    font-size: 18px;
-    top: 0px; }
-  form .textField input[type="text"],
-  form .textField input[type="tel"],
-  form .textField input[type="number"],
-  form .textField input[type="email"] {
-    font-size: 16px; }
-  .sex p {
-    font-size: 18px; }
-  .sex input[type="radio"] + label {
-    padding: 5px 13px;
-    font-size: 16px; }
-  .money p {
-    font-size: 18px; }
-  .money select {
-    font-size: 16px; } }
 
 /* LISTE */
 #app {
