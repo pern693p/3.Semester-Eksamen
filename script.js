@@ -2,8 +2,8 @@
 /* import "babel-polyfill"; */
 
 const chosen = [];
-const halfform = document.querySelector("form#add_email");
-const fullform = document.querySelector("form.regi");
+const emailAndUsernameRegistrationForm = document.querySelector("form#email_and_username_registration");
+const fullUserRegistrationForm = document.querySelector("form#full_user_registration");
 let currentID = 0;
 
 window.addEventListener("DOMContentLoaded", loadSVGS);
@@ -81,47 +81,45 @@ function formOverlay() {
   document.querySelector(".form_overlay").classList.remove("hide");
 
   if (chosen.length === 1) {
-    document.querySelector(".email").classList.remove("hide");
-    halfform.elements.email.required = true;
+    emailAndUsernameRegistrationForm.querySelector(".email").classList.remove("hide");
+    emailAndUsernameRegistrationForm.elements.email.required = true;
 
-    document.querySelector("#add_email button[type=submit]").addEventListener("click", async function(event) {
+    document.querySelector("input.email_submit").addEventListener("click", async function(event) {
       event.preventDefault();
 
-      if (await checkEmail(halfform.elements.email.value)) {
+      if (await checkEmail(emailAndUsernameRegistrationForm.elements.email.value)) {
         alert("Denne email er allerede i brug. Har du glemt din adgangskode kan du få hjælp på support@karnevalspil.dk");
       } else {
-        document.querySelector(".inputFields").classList.add("hide");
-        document.querySelector(".email").classList.add("hide");
-        halfform.elements.email.required = false;
+        document.querySelector(".form_overlay").classList.add("hide");
+        emailAndUsernameRegistrationForm.querySelector(".input.email").classList.add("hide");
+        emailAndUsernameRegistrationForm.elements.email.required = false;
       }
     });
   } else if (chosen.length === 2) {
-    document.querySelector(".username").classList.remove("hide");
-    halfform.elements.name.required = true;
+    emailAndUsernameRegistrationForm.querySelector(".username").classList.remove("hide");
+    emailAndUsernameRegistrationForm.elements.name.required = true;
 
-    document.querySelector(".submitHalfName").addEventListener("click", async function(event) {
+    document.querySelector("input.username_submit").addEventListener("click", async function(event) {
       event.preventDefault();
       await postHalf().then(b => (currentID = b._id));
 
-      document.querySelector(".inputFields").classList.add("hide");
-      document.querySelector(".username").classList.add("hide");
-      halfform.elements.name.required = false;
+      document.querySelector(".form_overlay").classList.add("hide");
+      emailAndUsernameRegistrationForm.querySelector(".username").classList.add("hide");
+      emailAndUsernameRegistrationForm.elements.name.required = false;
     });
   } else if (chosen.length === 3) {
-    document.querySelector(".regi").classList.remove("hide");
-
-    document.querySelector("#username").setAttribute("value", halfform.elements.name.value);
-    document.querySelector("#emailfull").setAttribute("value", halfform.elements.email.value);
+    fullUserRegistrationForm.classList.remove("hide");
+    emailAndUsernameRegistrationForm.classList.add("hide");
+    fullUserRegistrationForm.querySelector("#username").setAttribute("value", emailAndUsernameRegistrationForm.elements.name.value);
+    fullUserRegistrationForm.querySelector("#email").setAttribute("value", emailAndUsernameRegistrationForm.elements.email.value);
 
     let sum = calculateSum();
+    fullUserRegistrationForm.querySelector("input#credit").setAttribute("value", sum);
 
-    document.querySelector(".money div").textContent = `${sum} kr.`;
-
-    document.querySelector(".mainSiteLink").addEventListener("click", async function(event) {
+    fullUserRegistrationForm.querySelector(".register_user_submit").addEventListener("click", async function(event) {
       await postFull(sum);
       event.preventDefault();
       await deleteBruger(currentID);
-
       window.location.href = "karnevalspil.html";
     });
   }
@@ -181,8 +179,8 @@ async function checkEmail(nyBruger) {
 
 async function postHalf() {
   const postData = {
-    name: halfform.elements.name.value,
-    email: halfform.elements.email.value
+    name: emailAndUsernameRegistrationForm.elements.name.value,
+    email: emailAndUsernameRegistrationForm.elements.email.value
   };
   return await fetch("https://eksamenhalvt-0223.restdb.io/rest/brugere", {
     method: "post",
@@ -201,14 +199,13 @@ async function postHalf() {
 
 async function postFull(sum) {
   const data = {
-    cpr: fullform.elements.cpr.value,
-    name: fullform.elements.firstname.value,
-    lastname: fullform.elements.lastname.value,
-    username: fullform.elements.username.value,
-    mobile: fullform.elements.mobile.value,
-    address: fullform.elements.address.value,
-    gender: fullform.elements.sex.value,
-    email: fullform.elements.email.value,
+    cpr: fullUserRegistrationForm.elements.cpr.value,
+    name: fullUserRegistrationForm.elements.firstname.value,
+    lastname: fullUserRegistrationForm.elements.lastname.value,
+    username: fullUserRegistrationForm.elements.username.value,
+    mobile: fullUserRegistrationForm.elements.mobile.value,
+    address: fullUserRegistrationForm.elements.address.value,
+    email: fullUserRegistrationForm.elements.email.value,
     estimated: sum
   };
 

@@ -88,66 +88,49 @@
     
     <section class="form_overlay hide">
       
-      <form id="add_email">
+      <form id="email_and_username_registration">
         <div class="input email hide">
-          <input type="email" name="email" placeholder="Fortæl os din email"/>
-          <button class="button" type="submit">Fang en and mere!</button>
+          <input type="email" name="email" placeholder="Fortæl os din e-mail"/>
+          <input type="submit" class="button email_submit" value="Fang en and mere!"/>
         </div>
-        
-        <div class="form username hide">
-          <div class="textField">
-            <input type="text" name="name" />
-            <label for="name"> Hvad må vi kalde dig? </label>
-          </div>
-          <button class="submitHalfName">Fisk videre!</button>
+        <div class="input username hide">
+          <input type="text" placeholder="Hvad må vi kalde dig?" name="name" />
+          <input type="submit" class="button username_submit" value="Fang en and mere!"/>
         </div>
       </form>
 
-      <form class="regi hide">
-        <div class="textField">
-          <input type="number" name="cpr" id="cpr" required />
-          <label for="cpr"> CPR-nummer </label>
+      <form id="full_user_registration" class="hide">
+        <div class="input cpr">
+          <input type="text" name="cpr" id="cpr" placeholder="CPR-nummer" maxlength="11" minlength="11" required />
         </div>
-        <div class="textField">
-          <input type="text" name="firstname" id="firstname" required />
-          <label for="firstname"> Fornavn </label>
+        <div class="input firstname">
+          <input type="text" name="firstname" id="firstname" placeholder="Fornavn" required />
         </div>
-        <div class="textField">
-          <input type="text" name="lastname" id="lastname" required />
-          <label for="lastname"> Efternavn </label>
+        <div class="input lastname">
+          <input type="text" name="lastname" id="lastname" placeholder="Efternavn" required />
         </div>
-        <div class="textField">
-          <input type="text" name="usernamefull" id="username" required />
-          <label for="usernamefull"> Brugernavn </label>
+        <div class="input username">
+          <input type="text" name="usernamefull" id="username" placeholder="Brugernavn" required />
         </div>
-        <div class="textField">
-          <input type="tel" name="mobile" id="mobile" required />
-          <label for="mobile"> Mobilnummer </label>
+         <div class="input mobile">
+          <input type="tel" name="mobile" id="mobile" placeholder="Mobilnummer" maxlength="8" minlength="8" required />
         </div>
-        <div class="textField">
-          <input type="email" name="email" id="emailfull" required />
-          <label for="email"> E-mail </label>
+         <div class="input email">
+          <input type="email" name="email" id="email" placeholder="E-mail" required />
         </div>
-        <div class="textField">
-          <input type="text" name="address" id="address" required />
-          <label for="address"> Adresse </label>
+        <div class="input address">
+          <input type="text" name="address" id="address" placeholder="Adresse" required />
         </div>
-        <div class="sex">
-          <p>Køn</p>
-          <div>
-            <input type="radio" name="sex" id="man" value="Mand" required class="hide man" />
-            <label for="man"> Mand </label>
-          </div>
-          <div>
-           <input type="radio" name="sex" id="woman" value="Kvinde" required class="hide woman" />
-            <label for="woman"> Dame </label>
-          </div>
+        <div class="input credit">
+          <label>Din saldo</label>
+          <div class="input_group">
+            <input type="number" name="credit" id="credit" disabled />
+            <span class="input_group_addon">KR</span>
+          <divZ
         </div>
-        <div class="money">
-          <p>Din saldo:</p>
-          <div></div>
+        <div class="input">
+          <input type="submit" class="button register_user_submit" value="Opret bruger"/>
         </div>
-        <div class="mainSiteLink">Registrer</div>
       </form>
     </section>
 
